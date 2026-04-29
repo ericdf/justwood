@@ -1,0 +1,52 @@
+{#
+  category-nav.njk
+  Set `activeCat` in page frontmatter to highlight the current category and use page URLs.
+  Leave `activeCat` unset on the home page to use section anchors (#furniture etc.).
+#}
+<nav id="category-nav" class="sticky z-40 bg-ground border-b border-ash" style="top: 52px;">
+  <div class="overflow-x-auto">
+    <div class="flex items-center gap-0 px-8 whitespace-nowrap font-ui text-[11px] tracking-widest uppercase">
+      {% set cats = [
+        { id: "furniture", name: "Furniture", anchor: "#furniture", url: "/furniture/" },
+        { id: "lighting",  name: "Lighting",  anchor: "#lighting",  url: "/lighting/" },
+        { id: "panels",    name: "Panels",    anchor: "#panels",    url: "/panels/" },
+        { id: "bowls",     name: "Bowls",     anchor: "#bowls",     url: "/bowls/" },
+        { id: "objects",   name: "Objects",   anchor: "#objects",   url: "/objects/" }
+      ] %}
+      {% for cat in cats %}
+        {% if loop.index > 1 %}
+          <span class="text-charcoal/30 px-3 select-none">·</span>
+        {% endif %}
+        {% if not activeCat %}
+          <a href="{{ cat.anchor }}"
+             class="py-4 text-charcoal hover:text-cedar transition-colors">{{ cat.name }}</a>
+        {% else %}
+          <a href="{{ cat.url }}"
+             class="py-4 transition-colors {% if activeCat == cat.id %}text-charcoal font-medium{% else %}text-charcoal hover:text-cedar{% endif %}">{{ cat.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</nav>
+
+{% if not activeCat %}
+<script>
+  (function () {
+    var nav = document.getElementById('category-nav');
+    if (!nav) return;
+    nav.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (!target) return;
+      // Prevent the native anchor scroll, which has a Safari bug when triggered
+      // from a sticky element (scroll-margin-top is ignored on first click).
+      // scrollIntoView() is a separate code path that respects scroll-margin-top
+      // correctly in all browsers.
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  })();
+</script>
+{% endif %}

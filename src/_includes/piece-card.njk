@@ -1,0 +1,27 @@
+<article class="group">
+  <a href="/work/{{ piece.slug }}/" class="block">
+
+    {# Image #}
+    <div class="overflow-hidden bg-paper {% if piece.featured %}aspect-[4/3]{% else %}aspect-[3/4]{% endif %}">
+      <img
+        src="{{ piece.primaryImage }}"
+        alt="{{ piece.title }}"
+        loading="lazy"
+        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+      >
+    </div>
+
+    {# Text #}
+    <div class="mt-2 px-1">
+      <p class="font-ui text-[11px] tracking-widest uppercase text-ash mb-1">{{ piece.category }}</p>
+      <h3 class="font-display font-light leading-snug text-charcoal
+                 {% if piece.featured %}text-2xl md:text-3xl{% else %}text-xl md:text-2xl{% endif %}">
+        {{ piece.title }}
+        {% if piece.titleJapanese %}
+          <span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ piece.titleJapanese }}</span>
+        {% endif %}
+      </h3>
+    </div>
+
+  </a>
+</article>

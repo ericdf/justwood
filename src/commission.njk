@@ -1,0 +1,72 @@
+---
+layout: base.njk
+title: Commission
+---
+
+<div class="max-w-3xl mx-auto px-6 py-20">
+
+  <h1 class="font-display text-5xl md:text-6xl font-light text-charcoal mb-4">Commission</h1>
+  <p class="font-body text-ash text-lg mb-16 leading-relaxed">
+    Every piece in this portfolio was made for a specific person and place.<br>
+    Yours can be too.
+  </p>
+
+  {# Process steps #}
+  <div class="space-y-12 mb-20">
+    {% set steps = [
+      { n: "01", title: "Begin a conversation", body: "Send a message describing what you have in mind — the space, the function, the feeling you're after. No brief is too vague to start." },
+      { n: "02", title: "Scope and design", body: "We'll talk through materials, dimensions, joinery, and timeline. I'll sketch options and we'll land on a design that's right for your space." },
+      { n: "03", title: "Proposal and deposit", body: "You'll receive a written proposal with pricing and an estimated completion date. A 50% deposit confirms the commission and reserves your place in the queue." },
+      { n: "04", title: "Build", body: "I'll keep you informed as the piece takes shape — progress photos, material choices, and any decisions that arise in the making." },
+      { n: "05", title: "Delivery", body: "Most pieces are delivered in person within the Bay Area. Crating and freight can be arranged for pieces going further." }
+    ] %}
+    {% for step in steps %}
+    <div class="flex gap-8">
+      <div class="font-display text-5xl font-light text-ash shrink-0">{{ step.n }}</div>
+      <div>
+        <h2 class="font-display text-2xl font-light text-charcoal mb-2">{{ step.title }}</h2>
+        <p class="font-body text-charcoal leading-relaxed">{{ step.body }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {# Form #}
+  <div class="border-t border-ash pt-16">
+    <h2 class="font-display text-3xl font-light text-charcoal mb-8">Get in touch</h2>
+
+    <form name="commission" method="POST" netlify class="space-y-6">
+      <input type="hidden" name="form-name" value="commission">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block font-ui text-xs tracking-widest uppercase text-ash mb-2">Name</label>
+          <input type="text" name="name" required
+                 class="w-full bg-paper border border-ash px-4 py-3 font-body text-charcoal focus:border-charcoal focus:outline-none transition-colors">
+        </div>
+        <div>
+          <label class="block font-ui text-xs tracking-widest uppercase text-ash mb-2">Email</label>
+          <input type="email" name="email" required
+                 class="w-full bg-paper border border-ash px-4 py-3 font-body text-charcoal focus:border-charcoal focus:outline-none transition-colors">
+        </div>
+      </div>
+
+      <div>
+        <label class="block font-ui text-xs tracking-widest uppercase text-ash mb-2">What do you have in mind?</label>
+        <textarea name="message" rows="6" required
+                  class="w-full bg-paper border border-ash px-4 py-3 font-body text-charcoal focus:border-charcoal focus:outline-none transition-colors resize-none"></textarea>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button type="submit"
+                class="font-ui text-xs tracking-widest uppercase bg-charcoal text-ground px-8 py-3 hover:bg-cedar transition-colors">
+          Send
+        </button>
+        <p class="font-ui text-xs text-ash">
+          Or email directly: <a href="mailto:{{ site.email }}" class="text-charcoal hover:text-cedar transition-colors">{{ site.email }}</a>
+        </p>
+      </div>
+    </form>
+  </div>
+
+</div>

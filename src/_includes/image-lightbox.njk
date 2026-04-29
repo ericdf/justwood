@@ -1,0 +1,66 @@
+<div
+  x-data="{
+    open: false,
+    current: 0,
+    images: {{ galleryImages | dump | safe }},
+    prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
+    next() { this.current = (this.current + 1) % this.images.length }
+  }"
+  class="mt-10"
+>
+  {# Thumbnail row — large, horizontally scrollable if many images #}
+  <div class="flex gap-3 overflow-x-auto pb-2">
+    {% for img in galleryImages %}
+    <button
+      @click="open = true; current = {{ loop.index0 }}"
+      class="shrink-0 overflow-hidden bg-paper focus:outline-none group"
+      style="height: 220px; width: auto;"
+    >
+      <img
+        src="{{ img }}"
+        alt="{{ piece.title }} — detail {{ loop.index }}"
+        loading="lazy"
+        class="h-full w-auto object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+      >
+    </button>
+    {% endfor %}
+  </div>
+
+  {# Lightbox overlay #}
+  <div
+    x-show="open"
+    x-transition:enter="transition duration-200"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition duration-150"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    @keydown.escape.window="open = false"
+    @keydown.arrow-left.window="prev()"
+    @keydown.arrow-right.window="next()"
+    class="fixed inset-0 z-50 bg-blackwood/95 flex items-center justify-center"
+    style="display: none;"
+  >
+    <button @click="open = false"
+            class="absolute top-6 right-6 text-ash hover:text-ground font-ui text-sm tracking-widest uppercase">
+      Close ✕
+    </button>
+    <button @click="prev()"
+            class="absolute left-4 md:left-8 text-ash hover:text-ground font-ui text-4xl px-4 py-4 leading-none">‹</button>
+    <button @click="next()"
+            class="absolute right-4 md:right-8 text-ash hover:text-ground font-ui text-4xl px-4 py-4 leading-none">›</button>
+
+    <template x-for="(img, i) in images" :key="i">
+      <img
+        x-show="current === i"
+        :src="img"
+        :alt="'{{ piece.title }} — detail ' + (i + 1)"
+        class="max-h-[90vh] max-w-[90vw] object-contain"
+      >
+    </template>
+
+    <div class="absolute bottom-6 font-ui text-sm tracking-widest text-ash">
+      <span x-text="current + 1"></span> / <span x-text="images.length"></span>
+    </div>
+  </div>
+</div>

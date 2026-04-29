@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: Furniture
+permalink: /furniture/
+activeCat: furniture
+---
+
+<div class="px-8 pt-16 pb-10 border-b border-ash">
+  <h1 class="font-display text-5xl md:text-6xl font-light text-charcoal mb-4">Furniture</h1>
+  <p class="font-body text-lg text-charcoal/70 max-w-2xl">Fine furniture in the Japanese and western joinery tradition. Built for specific people, specific spaces, and long lives.</p>
+</div>
+
+{% include "category-nav.njk" %}
+
+<div class="grid grid-cols-2 gap-[4px] mt-[4px]">
+  {% for piece in pieces %}
+    {% if piece.category == "furniture" %}
+    <div class="group overflow-hidden {% if piece.featured %}col-span-2{% endif %}">
+      <a href="/work/{{ piece.slug }}/"
+         class="block"
+         style="height: max(280px, {% if piece.featured %}40vw{% else %}35vw{% endif %});">
+        <img src="{{ piece.primaryImage }}" alt="{{ piece.title }}" loading="lazy"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]">
+      </a>
+      <div class="mt-2 px-3 pb-5">
+        <h3 class="font-display {% if piece.featured %}text-2xl{% else %}text-xl{% endif %} font-light text-charcoal">{{ piece.title }}</h3>
+      </div>
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>

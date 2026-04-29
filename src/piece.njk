@@ -1,0 +1,212 @@
+---
+pagination:
+  data: pieces
+  size: 1
+  alias: piece
+permalink: /work/{{ piece.slug }}/
+layout: base.njk
+---
+{% set title = piece.title %}
+{% set excerpt = piece.excerpt %}
+{% set primaryImage = piece.primaryImage %}
+
+{# Hero — portrait: solid warm bg, contained; standard: full-width cover #}
+{% if piece.orientation == 'portrait' %}
+<section class="piece-hero relative w-full h-[75vh] flex items-center justify-center" style="background-color: #EDE8DF;">
+  <img
+    src="{{ piece.primaryImage }}"
+    alt="{{ piece.title }}"
+    class="max-h-full w-auto object-contain"
+  >
+  <div class="scroll-hint-wrap" style="color: var(--color-ash);"
+       onclick="document.querySelector('.piece-content').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-hint">{% include "scroll-chevron.njk" %}</div>
+  </div>
+</section>
+{% else %}
+<section class="piece-hero relative w-full h-[75vh] overflow-hidden">
+  <img
+    src="{{ piece.primaryImage }}"
+    alt="{{ piece.title }}"
+    class="w-full h-full object-cover object-center"
+  >
+  <div class="scroll-hint-wrap" style="color: rgba(255,255,255,0.9);"
+       onclick="document.querySelector('.piece-content').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-hint">{% include "scroll-chevron.njk" %}</div>
+  </div>
+</section>
+{% endif %}
+
+{# Title + description + sidebar — constrained width #}
+<div class="piece-content max-w-7xl mx-auto px-8 py-16">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+
+    <div class="md:col-span-2">
+      <h1 class="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight mb-1">
+        {{ piece.title }}
+        {% if piece.titleJapanese %}
+          <span style="font-family: 'Noto Serif JP', serif;" class="font-light text-charcoal/60">{{ piece.titleJapanese }}</span>
+        {% endif %}
+      </h1>
+      <p class="font-ui text-sm tracking-widest uppercase text-charcoal/60 mb-8 border-b border-ash pb-6">{{ piece.category }}</p>
+
+      <div class="font-body text-lg text-charcoal leading-relaxed space-y-6">
+        {% for para in piece.description.split("\n\n") %}
+        <p>{{ para }}</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <aside class="font-ui">
+      <div class="border-t border-ash pt-6 space-y-5">
+        {% if piece.materials %}
+        <div>
+          <p class="text-[11px] tracking-widest uppercase text-charcoal/70 mb-1">Materials</p>
+          <p class="text-sm text-charcoal leading-snug">{{ piece.materials }}</p>
+        </div>
+        {% endif %}
+        {% if piece.dimensions %}
+        <div>
+          <p class="text-[11px] tracking-widest uppercase text-charcoal/70 mb-1">Dimensions</p>
+          <p class="text-sm text-charcoal">{{ piece.dimensions }}</p>
+        </div>
+        {% endif %}
+        {% if piece.wiring %}
+        <div>
+          <p class="text-[11px] tracking-widest uppercase text-charcoal/70 mb-1">Wiring</p>
+          <p class="text-sm text-charcoal">{{ piece.wiring }}</p>
+        </div>
+        {% endif %}
+        <div class="pt-5 border-t border-ash">
+          <p class="text-[11px] tracking-widest uppercase text-charcoal/70 mb-3">Interested?</p>
+          <a href="/commission/"
+             class="block text-center border border-charcoal text-charcoal text-sm py-3 px-4 hover:bg-charcoal hover:text-ground transition-colors uppercase tracking-widest">
+            Commission this piece
+          </a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+{# Secondary images — full viewport width, Alpine lightbox #}
+{% if piece.images and piece.images.length %}
+<div
+  x-data='{
+    open: false,
+    current: 0,
+    images: {{ piece.images | dump | safe }},
+    prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
+    next() { this.current = (this.current + 1) % this.images.length }
+  }'
+>
+  {# Desktop: equal-height horizontal strip #}
+  <div class="hidden md:flex w-full" style="height: 420px;">
+    {% for img in piece.images %}
+    <button
+      @click="open = true; current = {{ loop.index0 }}"
+      class="flex-1 overflow-hidden focus:outline-none group min-w-0"
+    >
+      <img
+        src="{{ img }}"
+        alt="{{ piece.title }} — detail {{ loop.index }}"
+        loading="lazy"
+        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+      >
+    </button>
+    {% endfor %}
+  </div>
+
+  {# Mobile: single-column stack #}
+  <div class="md:hidden flex flex-col gap-1">
+    {% for img in piece.images %}
+    <button
+      @click="open = true; current = {{ loop.index0 }}"
+      class="w-full focus:outline-none"
+    >
+      <img
+        src="{{ img }}"
+        alt="{{ piece.title }} — detail {{ loop.index }}"
+        loading="lazy"
+        class="w-full h-auto"
+      >
+    </button>
+    {% endfor %}
+  </div>
+
+  {# Lightbox #}
+  <div
+    x-show="open"
+    x-transition:enter="transition duration-200"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition duration-150"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    @keydown.escape.window="open = false"
+    @keydown.arrow-left.window="prev()"
+    @keydown.arrow-right.window="next()"
+    class="fixed inset-0 flex items-center justify-center bg-blackwood/95"
+    style="z-index: 10000;"
+  >
+    <button
+      @click="open = false"
+      class="absolute top-6 right-6 font-ui text-sm tracking-widest uppercase text-ground/70 hover:text-ground"
+    >✕ Close</button>
+
+    <button
+      @click="prev()"
+      class="absolute left-4 md:left-10 text-ground/60 hover:text-ground font-light leading-none"
+      style="font-size: 3rem;"
+    >‹</button>
+    <button
+      @click="next()"
+      class="absolute right-4 md:right-10 text-ground/60 hover:text-ground font-light leading-none"
+      style="font-size: 3rem;"
+    >›</button>
+
+    <template x-for="(img, i) in images" :key="i">
+      <img
+        x-show="current === i"
+        :src="img"
+        :alt="'{{ piece.title }} — detail ' + (i + 1)"
+        class="max-h-[90vh] max-w-[90vw] object-contain"
+      >
+    </template>
+
+    <p class="absolute bottom-6 font-ui text-sm tracking-widest text-ground/50">
+      <span x-text="current + 1"></span> / <span x-text="images.length"></span>
+    </p>
+  </div>
+
+</div>
+{% endif %}
+
+{# Fade chevron when hero scrolls out of view #}
+<script>
+  (function () {
+    var hero = document.querySelector('.piece-hero');
+    var hint = document.querySelector('.scroll-hint-wrap');
+    if (!hero || !hint) return;
+    new IntersectionObserver(function (entries) {
+      hint.classList.toggle('hero-gone', !entries[0].isIntersecting);
+    }, { threshold: 0.05 }).observe(hero);
+  })();
+</script>
+
+{# Related pieces #}
+{% set related = pieces | byCategory(piece.category) %}
+{% if related.length > 1 %}
+<div class="max-w-7xl mx-auto px-8 pb-20 mt-20 border-t border-ash pt-12">
+  <h2 class="font-display text-2xl font-light text-charcoal mb-8">More {{ piece.category }}</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {% for rel in related %}
+      {% if rel.slug !== piece.slug %}
+      {% set piece = rel %}
+      {% include "piece-card.njk" %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

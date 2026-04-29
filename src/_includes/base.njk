@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if excerpt %}{{ excerpt }}{% else %}{{ site.description }}{% endif %}">
+  {% if primaryImage %}
+  <meta property="og:image" content="{{ site.url }}{{ primaryImage }}">
+  {% endif %}
+  <meta property="og:title" content="{% if title %}{{ title }} — {% endif %}{{ site.title }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+</head>
+<body class="min-h-screen">
+
+  {# Navigation #}
+  <header x-data="{ open: false }" class="sticky top-0 z-50 bg-blackwood text-ground">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-ui font-light tracking-widest uppercase text-sm text-ground hover:text-ash transition-colors">
+        Justwood
+      </a>
+
+      {# Desktop nav #}
+      <ul class="hidden md:flex gap-8 font-ui font-light tracking-wider text-sm uppercase">
+        <li><a href="/" class="text-ash hover:text-ground transition-colors">Work</a></li>
+        <li><a href="/about/" class="text-ash hover:text-ground transition-colors">About</a></li>
+        <li><a href="/commission/" class="text-ash hover:text-ground transition-colors">Commission</a></li>
+      </ul>
+
+      {# Hamburger #}
+      <button @click="open = !open" class="md:hidden text-ash hover:text-ground" aria-label="Menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M4 6h16M4 12h16M4 18h16"/>
+          <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </nav>
+
+    {# Mobile menu #}
+    <div x-show="open" x-transition class="md:hidden border-t border-charcoal">
+      <ul class="flex flex-col font-ui font-light tracking-wider text-sm uppercase">
+        <li><a href="/" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground border-b border-charcoal">Work</a></li>
+        <li><a href="/about/" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground border-b border-charcoal">About</a></li>
+        <li><a href="/commission/" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground">Commission</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="border-t border-ash">
+    <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start gap-6">
+      <div>
+        <p class="font-display text-2xl font-light text-charcoal">Justwood</p>
+        <p class="font-ui text-xs tracking-wider text-ash mt-1">Berkeley, California</p>
+      </div>
+      <nav class="flex gap-8 font-ui text-xs tracking-wider uppercase text-ash">
+        <a href="/" class="hover:text-charcoal transition-colors">Work</a>
+        <a href="/about/" class="hover:text-charcoal transition-colors">About</a>
+        <a href="/commission/" class="hover:text-charcoal transition-colors">Commission</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

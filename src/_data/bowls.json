@@ -1,0 +1,44 @@
+{
+  "cards": [
+    {
+      "id": "segmented-1",
+      "subcategory": "segmented",
+      "title": "Segmented Bowls",
+      "url": "/bowls/#segmented",
+      "image": "/assets/images/segmented-bowls/featured.png",
+      "fit": "contain"
+    },
+    {
+      "id": "segmented-2",
+      "subcategory": "segmented",
+      "title": "Segmented Bowls",
+      "url": "/bowls/#segmented",
+      "image": "/assets/images/segmented-bowls/Bowl - 8 Background Removed.png",
+      "fit": "contain"
+    },
+    {
+      "id": "found-1",
+      "subcategory": "found",
+      "title": "Found Wood Bowls",
+      "url": "/bowls/#found",
+      "image": "/assets/images/found-wood-bowls/featured.png",
+      "fit": "cover"
+    },
+    {
+      "id": "found-2",
+      "subcategory": "found",
+      "title": "Found Wood Bowls",
+      "url": "/bowls/#found",
+      "image": "/assets/images/found-wood-bowls/Bowl - 4 Background Removed.png",
+      "fit": "contain"
+    },
+    {
+      "id": "carved-1",
+      "subcategory": "carved",
+      "title": "Hand Carved Bowls",
+      "url": "/bowls/#carved",
+      "image": "/assets/images/carved-bowls/featured.png",
+      "fit": "cover"
+    }
+  ]
+}

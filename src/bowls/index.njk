@@ -1,0 +1,196 @@
+---
+layout: base.njk
+title: Bowls
+permalink: /bowls/
+activeCat: bowls
+---
+
+<div class="px-8 pt-16 pb-10 border-b border-ash">
+  <h1 class="font-display text-5xl md:text-6xl font-light text-charcoal mb-4">Bowls</h1>
+  <p class="font-body text-lg text-charcoal/70 max-w-2xl">Turned, segmented, and carved — each bowl is one of a kind and cannot be duplicated.</p>
+</div>
+
+{% include "category-nav.njk" %}
+
+{# ── SEGMENTED ────────────────────────────────────────────────────── #}
+{% set segImages = [
+  "/assets/images/segmented-bowls/featured.png",
+  "/assets/images/segmented-bowls/Bowl - 6 Background Removed.png",
+  "/assets/images/segmented-bowls/Bowl - 8 Background Removed.png",
+  "/assets/images/segmented-bowls/Bowl - 15 Background Removed.png"
+] %}
+
+<section id="segmented" class="border-t border-ash mt-10 md:mt-16">
+  <div class="px-8 py-5">
+    <h2 class="font-ui text-[11px] tracking-widest uppercase text-charcoal">Segmented</h2>
+  </div>
+
+  <div
+    x-data='{
+      open: false, current: 0,
+      images: {{ segImages | dump | safe }},
+      prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
+      next() { this.current = (this.current + 1) % this.images.length }
+    }'
+  >
+    <div class="hidden md:flex w-full bg-paper" style="height: 480px;">
+      {% for img in segImages %}
+      <button @click="open = true; current = {{ loop.index0 }}"
+              class="flex-1 overflow-hidden focus:outline-none group min-w-0 bg-paper">
+        <img src="{{ img }}" alt="Segmented bowl {{ loop.index }}" loading="lazy"
+             class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]">
+      </button>
+      {% endfor %}
+    </div>
+    <div class="md:hidden flex flex-col gap-1">
+      {% for img in segImages %}
+      <button @click="open = true; current = {{ loop.index0 }}" class="w-full focus:outline-none bg-paper p-4">
+        <img src="{{ img }}" alt="Segmented bowl {{ loop.index }}" loading="lazy" class="w-full h-auto object-contain">
+      </button>
+      {% endfor %}
+    </div>
+    <div x-show="open"
+         x-transition:enter="transition duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+         x-transition:leave="transition duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+         @keydown.escape.window="open = false" @keydown.arrow-left.window="prev()" @keydown.arrow-right.window="next()"
+         class="fixed inset-0 flex items-center justify-center bg-blackwood/95" style="z-index: 10000;">
+      <button @click="open = false" class="absolute top-6 right-6 font-ui text-sm tracking-widest uppercase text-ground/70 hover:text-ground">✕ Close</button>
+      <button @click="prev()" class="absolute left-4 md:left-10 text-ground/60 hover:text-ground font-light leading-none" style="font-size: 3rem;">‹</button>
+      <button @click="next()" class="absolute right-4 md:right-10 text-ground/60 hover:text-ground font-light leading-none" style="font-size: 3rem;">›</button>
+      <template x-for="(img, i) in images" :key="i">
+        <img x-show="current === i" :src="img" :alt="'Segmented bowl ' + (i + 1)" class="max-h-[90vh] max-w-[90vw] object-contain">
+      </template>
+      <p class="absolute bottom-6 font-ui text-sm tracking-widest text-ground/50">
+        <span x-text="current + 1"></span> / <span x-text="images.length"></span>
+      </p>
+    </div>
+  </div>
+
+  <a href="/bowls/segmented/"
+     class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
+    See all Segmented Bowls →
+  </a>
+</section>
+
+{# ── FOUND WOOD ───────────────────────────────────────────────────── #}
+{% set foundImages = [
+  "/assets/images/found-wood-bowls/featured.png",
+  "/assets/images/found-wood-bowls/Bowl - 2 Background Removed.png",
+  "/assets/images/found-wood-bowls/Bowl - 3 Background Removed.png",
+  "/assets/images/found-wood-bowls/Bowl - 4 Background Removed.png",
+  "/assets/images/found-wood-bowls/Bowl - 11 Background Removed.png",
+  "/assets/images/found-wood-bowls/Bowl - 12 Background Removed.png",
+  "/assets/images/found-wood-bowls/Bowl - 13 Background Removed.png",
+  "/assets/images/found-wood-bowls/Bowl - 14 Background Removed.png"
+] %}
+
+<section id="found" class="border-t border-ash mt-10 md:mt-16">
+  <div class="px-8 py-5">
+    <h2 class="font-ui text-[11px] tracking-widest uppercase text-charcoal">Found Wood</h2>
+  </div>
+
+  <div
+    x-data='{
+      open: false, current: 0,
+      images: {{ foundImages | dump | safe }},
+      prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
+      next() { this.current = (this.current + 1) % this.images.length }
+    }'
+  >
+    <div class="hidden md:grid grid-cols-4 gap-1 bg-paper">
+      {% for img in foundImages %}
+      <button @click="open = true; current = {{ loop.index0 }}"
+              class="aspect-square overflow-hidden focus:outline-none group bg-paper">
+        <img src="{{ img }}" alt="Found wood bowl {{ loop.index }}" loading="lazy"
+             class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]">
+      </button>
+      {% endfor %}
+    </div>
+    <div class="md:hidden flex flex-col gap-1">
+      {% for img in foundImages %}
+      <button @click="open = true; current = {{ loop.index0 }}" class="w-full focus:outline-none bg-paper p-4">
+        <img src="{{ img }}" alt="Found wood bowl {{ loop.index }}" loading="lazy" class="w-full h-auto object-contain">
+      </button>
+      {% endfor %}
+    </div>
+    <div x-show="open"
+         x-transition:enter="transition duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+         x-transition:leave="transition duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+         @keydown.escape.window="open = false" @keydown.arrow-left.window="prev()" @keydown.arrow-right.window="next()"
+         class="fixed inset-0 flex items-center justify-center bg-blackwood/95" style="z-index: 10000;">
+      <button @click="open = false" class="absolute top-6 right-6 font-ui text-sm tracking-widest uppercase text-ground/70 hover:text-ground">✕ Close</button>
+      <button @click="prev()" class="absolute left-4 md:left-10 text-ground/60 hover:text-ground font-light leading-none" style="font-size: 3rem;">‹</button>
+      <button @click="next()" class="absolute right-4 md:right-10 text-ground/60 hover:text-ground font-light leading-none" style="font-size: 3rem;">›</button>
+      <template x-for="(img, i) in images" :key="i">
+        <img x-show="current === i" :src="img" :alt="'Found wood bowl ' + (i + 1)" class="max-h-[90vh] max-w-[90vw] object-contain">
+      </template>
+      <p class="absolute bottom-6 font-ui text-sm tracking-widest text-ground/50">
+        <span x-text="current + 1"></span> / <span x-text="images.length"></span>
+      </p>
+    </div>
+  </div>
+
+  <a href="/bowls/found/"
+     class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
+    See all Found Wood Bowls →
+  </a>
+</section>
+
+{# ── CARVED ───────────────────────────────────────────────────────── #}
+{% set carvedImages = [
+  "/assets/images/carved-bowls/featured.png",
+  "/assets/images/carved-bowls/Bowl - 9 Background Removed.png",
+  "/assets/images/carved-bowls/Bowl - 11.jpeg"
+] %}
+
+<section id="carved" class="border-t border-ash mt-10 md:mt-16">
+  <div class="px-8 py-5">
+    <h2 class="font-ui text-[11px] tracking-widest uppercase text-charcoal">Carved</h2>
+  </div>
+
+  <div
+    x-data='{
+      open: false, current: 0,
+      images: {{ carvedImages | dump | safe }},
+      prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
+      next() { this.current = (this.current + 1) % this.images.length }
+    }'
+  >
+    <div class="hidden md:flex w-full bg-paper" style="height: 520px;">
+      {% for img in carvedImages %}
+      <button @click="open = true; current = {{ loop.index0 }}"
+              class="flex-1 overflow-hidden focus:outline-none group min-w-0 bg-paper">
+        <img src="{{ img }}" alt="Hand carved bowl {{ loop.index }}" loading="lazy"
+             class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]">
+      </button>
+      {% endfor %}
+    </div>
+    <div class="md:hidden flex flex-col gap-1">
+      {% for img in carvedImages %}
+      <button @click="open = true; current = {{ loop.index0 }}" class="w-full focus:outline-none bg-paper p-4">
+        <img src="{{ img }}" alt="Hand carved bowl {{ loop.index }}" loading="lazy" class="w-full h-auto object-contain">
+      </button>
+      {% endfor %}
+    </div>
+    <div x-show="open"
+         x-transition:enter="transition duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+         x-transition:leave="transition duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+         @keydown.escape.window="open = false" @keydown.arrow-left.window="prev()" @keydown.arrow-right.window="next()"
+         class="fixed inset-0 flex items-center justify-center bg-blackwood/95" style="z-index: 10000;">
+      <button @click="open = false" class="absolute top-6 right-6 font-ui text-sm tracking-widest uppercase text-ground/70 hover:text-ground">✕ Close</button>
+      <button @click="prev()" class="absolute left-4 md:left-10 text-ground/60 hover:text-ground font-light leading-none" style="font-size: 3rem;">‹</button>
+      <button @click="next()" class="absolute right-4 md:right-10 text-ground/60 hover:text-ground font-light leading-none" style="font-size: 3rem;">›</button>
+      <template x-for="(img, i) in images" :key="i">
+        <img x-show="current === i" :src="img" :alt="'Hand carved bowl ' + (i + 1)" class="max-h-[90vh] max-w-[90vw] object-contain">
+      </template>
+      <p class="absolute bottom-6 font-ui text-sm tracking-widest text-ground/50">
+        <span x-text="current + 1"></span> / <span x-text="images.length"></span>
+      </p>
+    </div>
+  </div>
+
+  <a href="/bowls/carved/"
+     class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
+    See all Carved Bowls →
+  </a>
+</section>

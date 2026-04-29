@@ -1,0 +1,278 @@
+---
+layout: base.njk
+title: false
+---
+
+{# Hero — credenza #}
+<section class="relative w-full h-[75vh] overflow-hidden">
+  <img
+    src="/assets/images/credenza/featured.jpeg"
+    alt="Cherry and quilted maple credenza"
+    class="w-full h-full object-cover object-[center_50%]"
+  >
+  <div class="absolute inset-0 bg-gradient-to-t from-blackwood/60 via-blackwood/10 to-transparent"></div>
+  <div class="absolute bottom-10 left-8 md:left-16">
+    <p class="font-display text-ground text-4xl md:text-6xl font-light leading-tight">
+      Made by hand.<br>Built to last.
+    </p>
+    <p class="font-ui text-ash text-xs tracking-widest uppercase mt-3">Berkeley, California</p>
+  </div>
+</section>
+
+{# Sticky category nav #}
+{% include "category-nav.njk" %}
+
+{# Editorial sections #}
+
+{# ── FURNITURE ─────────────────────────────────────────────────────── #}
+{% set bed   = pieces | getBySlug("heirloom-bed") %}
+{% set table = pieces | getBySlug("parquet-table") %}
+
+<section class="border-t border-ash mt-10 md:mt-16">
+  <div class="px-8 py-5">
+    <h2 id="furniture" class="font-ui text-[11px] tracking-widest uppercase text-charcoal">Furniture</h2>
+  </div>
+  <div class="grid grid-cols-2 gap-[4px]">
+
+    <div class="col-span-2 group overflow-hidden">
+      <a href="/work/heirloom-bed/" class="block overflow-hidden"
+         style="height: max(280px, 40vw);">
+        <img src="{{ bed.primaryImage }}" alt="{{ bed.title }}" loading="lazy"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+             style="object-position: center 20%">
+      </a>
+      <div class="mt-2 px-3 pb-5">
+        <h3 class="font-display text-2xl font-light text-charcoal">{{ bed.title }}</h3>
+      </div>
+    </div>
+
+    <div class="col-span-2 group overflow-hidden">
+      <a href="/work/parquet-table/" class="block" style="height: max(280px, 40vw);">
+        <img src="{{ table.primaryImage }}" alt="{{ table.title }}" loading="lazy"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]">
+      </a>
+      <div class="mt-2 px-3 pb-5">
+        <h3 class="font-display text-2xl font-light text-charcoal">{{ table.title }}</h3>
+      </div>
+    </div>
+
+    <div class="col-span-2">
+      <a href="/furniture/" class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
+        See all Furniture →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{# ── LIGHTING ──────────────────────────────────────────────────────── #}
+{% set igeta    = pieces | getBySlug("igeta-lantern") %}
+{% set waterdrop = pieces | getBySlug("water-drop-lantern") %}
+
+<section class="border-t border-ash mt-10 md:mt-16">
+  <div class="px-8 py-5">
+    <h2 id="lighting" class="font-ui text-[11px] tracking-widest uppercase text-charcoal">Lighting</h2>
+  </div>
+  <div class="grid grid-cols-2 gap-[4px]">
+
+    <div class="group">
+      <a href="/work/igeta-lantern/" class="flex items-center justify-center"
+         style="background-color: #EDE8DF; height: max(280px, 49vw);">
+        <img src="{{ igeta.primaryImage }}" alt="{{ igeta.title }}" loading="lazy"
+             class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]">
+      </a>
+      <div class="mt-2 px-3 pb-5">
+        <h3 class="font-display text-xl font-light text-charcoal">
+          {{ igeta.title }}
+          {% if igeta.titleJapanese %}<span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ igeta.titleJapanese }}</span>{% endif %}
+        </h3>
+      </div>
+    </div>
+
+    <div class="group">
+      <a href="/work/water-drop-lantern/" class="flex items-center justify-center"
+         style="background-color: #EDE8DF; height: max(280px, 49vw);">
+        <img src="{{ waterdrop.primaryImage }}" alt="{{ waterdrop.title }}" loading="lazy"
+             class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]">
+      </a>
+      <div class="mt-2 px-3 pb-5">
+        <h3 class="font-display text-xl font-light text-charcoal">{{ waterdrop.title }}</h3>
+      </div>
+    </div>
+
+    <div class="col-span-2">
+      <a href="/lighting/" class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
+        See all Lighting →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{# ── PANELS ────────────────────────────────────────────────────────── #}
+{% set kurotake = pieces | getBySlug("kurotake-panel") %}
+{% set sakura   = pieces | getBySlug("kumiko-panel") %}
+
+<section class="border-t border-ash mt-10 md:mt-16">
+  <div class="px-8 py-5">
+    <h2 id="panels" class="font-ui text-[11px] tracking-widest uppercase text-charcoal">Panels</h2>
+  </div>
+  {# Natural proportions, vertically centered — no forced height #}
+  <div class="grid grid-cols-2 gap-[4px] items-center">
+
+    <div class="group overflow-hidden">
+      <a href="/work/kurotake-panel/" class="block">
+        <img src="{{ kurotake.primaryImage }}" alt="{{ kurotake.title }}" loading="lazy"
+             class="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]">
+      </a>
+      <div class="mt-2 px-3 pb-5">
+        <h3 class="font-display text-xl font-light text-charcoal">
+          {{ kurotake.title }}
+          {% if kurotake.titleJapanese %}<span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ kurotake.titleJapanese }}</span>{% endif %}
+        </h3>
+      </div>
+    </div>
+
+    <div class="group overflow-hidden">
+      <a href="/work/kumiko-panel/" class="block">
+        <img src="{{ sakura.primaryImage }}" alt="{{ sakura.title }}" loading="lazy"
+             class="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]">
+      </a>
+      <div class="mt-2 px-3 pb-5">
+        <h3 class="font-display text-xl font-light text-charcoal">
+          {{ sakura.title }}
+          {% if sakura.titleJapanese %}<span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ sakura.titleJapanese }}</span>{% endif %}
+        </h3>
+      </div>
+    </div>
+
+    <div class="col-span-2">
+      <a href="/panels/" class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
+        See all Panels →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{# ── BOWLS ─────────────────────────────────────────────────────────── #}
+<section class="border-t border-ash mt-10 md:mt-16">
+  <div class="px-8 py-5">
+    <h2 id="bowls" class="font-ui text-[11px] tracking-widest uppercase text-charcoal">Bowls</h2>
+  </div>
+  <div class="grid grid-cols-2 gap-[4px]">
+
+    {# 2 Segmented — split, no title labels #}
+    {% for card in bowls.cards %}
+      {% if card.subcategory == "segmented" %}
+      <div class="group overflow-hidden">
+        <a href="/bowls/segmented/" class="block bg-paper" style="height: max(280px, 35vw);">
+          <img src="{{ card.image }}" alt="Segmented bowl" loading="lazy"
+               class="w-full h-full {% if card.fit == 'contain' %}object-contain{% else %}object-cover{% endif %} transition-transform duration-700 group-hover:scale-[1.02]">
+        </a>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="col-span-2">
+      <a href="/bowls/segmented/" class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
+        See all Segmented Bowls →
+      </a>
+    </div>
+
+    {# 2 Found Wood — split, no title labels #}
+    {% for card in bowls.cards %}
+      {% if card.subcategory == "found" %}
+      <div class="group overflow-hidden">
+        <a href="/bowls/found/" class="block bg-paper" style="height: max(280px, 35vw);">
+          <img src="{{ card.image }}" alt="Found wood bowl" loading="lazy"
+               class="w-full h-full {% if card.fit == 'contain' %}object-contain{% else %}object-cover{% endif %} transition-transform duration-700 group-hover:scale-[1.02]">
+        </a>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="col-span-2">
+      <a href="/bowls/found/" class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
+        See all Found Wood Bowls →
+      </a>
+    </div>
+
+    {# 1 Carved — span, no title label #}
+    {% for card in bowls.cards %}
+      {% if card.subcategory == "carved" %}
+      <div class="col-span-2 group overflow-hidden">
+        <a href="/bowls/carved/" class="flex items-center justify-center bg-paper p-6"
+           style="height: max(280px, 40vw);">
+          <img src="{{ card.image }}" alt="Hand carved bowl" loading="lazy"
+               class="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]">
+        </a>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="col-span-2">
+      <a href="/bowls/carved/" class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
+        See all Carved Bowls →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{# ── OBJECTS ───────────────────────────────────────────────────────── #}
+{% set tokyo    = pieces | getBySlug("tokyo-bracket") %}
+{% set hanukk   = pieces | getBySlug("hanukkiah") %}
+
+<section class="border-t border-ash mt-10 md:mt-16">
+  <div class="px-8 py-5">
+    <h2 id="objects" class="font-ui text-[11px] tracking-widest uppercase text-charcoal">Objects</h2>
+  </div>
+  <div class="grid grid-cols-2 gap-[4px]">
+
+    <div class="group overflow-hidden">
+      <a href="/work/tokyo-bracket/" class="flex items-center justify-center bg-paper"
+         style="height: max(280px, 35vw);">
+        <img src="{{ tokyo.primaryImage }}" alt="{{ tokyo.title }}" loading="lazy"
+             class="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]">
+      </a>
+      <div class="mt-2 px-3 pb-5">
+        <h3 class="font-display text-xl font-light text-charcoal">
+          {{ tokyo.title }}
+          {% if tokyo.titleJapanese %}<span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ tokyo.titleJapanese }}</span>{% endif %}
+        </h3>
+      </div>
+    </div>
+
+    <div class="group overflow-hidden">
+      <a href="/work/hanukkiah/" class="block" style="height: max(280px, 35vw);">
+        <img src="{{ hanukk.primaryImage }}" alt="{{ hanukk.title }}" loading="lazy"
+             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]">
+      </a>
+      <div class="mt-2 px-3 pb-5">
+        <h3 class="font-display text-xl font-light text-charcoal">{{ hanukk.title }}</h3>
+      </div>
+    </div>
+
+    <div class="col-span-2">
+      <a href="/objects/" class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
+        See all Objects →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{# Commission CTA #}
+<section class="bg-blackwood py-20 px-6 text-center mt-10 md:mt-16">
+  <p class="font-display text-ground text-3xl md:text-5xl font-light mb-4">
+    Every piece is made to order.
+  </p>
+  <p class="font-body text-ash max-w-lg mx-auto mb-10 leading-relaxed">
+    Commission a piece built for your space, your wood, your life.
+  </p>
+  <a href="/commission/"
+     class="font-ui text-xs tracking-widest uppercase text-ground border border-ash px-8 py-3 hover:bg-ground hover:text-blackwood transition-colors">
+    Begin a Conversation
+  </a>
+</section>

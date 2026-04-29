@@ -1,0 +1,395 @@
+[
+  {
+    "title": "Cherry and Quilted Maple Credenza",
+    "slug": "credenza",
+    "category": "furniture",
+    "featured": true,
+    "showInGrid": false,
+    "date": "2023-01-01",
+    "materials": "Cherry, quilted maple",
+    "dimensions": "",
+    "excerpt": "Cherry and quilted maple credenza with floating top and half-blind dovetailed drawers",
+    "description": "Some pieces of furniture ask to be noticed from across the room. This credenza earns that attention through contrast: a cherry casework frame whose warm, deepening tones set off the chatoyance of the quilted maple drawer fronts — a figure so active it seems to shift and ripple as you move past it. The two species don't merely complement each other; they create a conversation that changes as the light moves through the day.\n\nThe floating top heightens that effect. Proud of the casework and separated by a deliberate shadow gap, it appears to levitate above the piece — an illusion sustained by a hidden spine with ribs mortised into the upper frame, so the magic of the effect is never explained by what you can see. Ten drawers, arranged in a classic three-column layout, are fitted with half-blind dovetails throughout: a joint that rewards the person who opens a drawer as much as the one who only looks.\n\nThis is among the most demanding pieces in the portfolio, and among the most satisfying.",
+    "primaryImage": "/assets/images/credenza/featured.jpeg",
+    "images": [
+      "/assets/images/credenza/credenza-drawer-fronts.jpeg",
+      "/assets/images/credenza/credenza-drawer-sides.jpeg"
+    ]
+  },
+  {
+    "title": "Heirloom Bed",
+    "slug": "heirloom-bed",
+    "category": "furniture",
+    "featured": true,
+    "homeSection": "furniture",
+    "homeLayout": "span",
+    "date": "2023-01-16",
+    "materials": "Cherry, curly maple, Douglas fir",
+    "dimensions": "",
+    "excerpt": "A bed in cherry and curly maple with complementary curves in head and footboard",
+    "description": "The headboard and footboard of this bed are built from curly maple — a wood whose chatoyance, that shifting, three-dimensional shimmer, makes every board a moving target for the eye. Set within cherry posts and rails whose warm tones deepen with age, the maple panels seem to glow from within. The headboard's convex arc answers the concave curve of the footboard across the length of the bed — a call and response that gives the piece its settled, considered character.\n\nDouglas fir slats span the rails, providing a resilient and supportive foundation for the mattress without the need for a box spring. The rails detach for moving, making the bed practical as well as beautiful.\n\nThis is a piece built to outlast its first owner — hence the name. Built to order in the wood species of your choice.",
+    "primaryImage": "/assets/images/heirloom-bed/featured.jpeg",
+    "images": [
+      "/assets/images/heirloom-bed/Library - 2 of 4.jpeg",
+      "/assets/images/heirloom-bed/Library - 3 of 4.jpeg",
+      "/assets/images/heirloom-bed/Library - 4 of 4.jpeg"
+    ]
+  },
+  {
+    "title": "Igeta Lamp",
+    "titleJapanese": "井桁",
+    "slug": "igeta-lantern",
+    "category": "lighting",
+    "featured": false,
+    "orientation": "portrait",
+    "homeSection": "lighting",
+    "homeLayout": "split",
+    "date": "2025-12-19",
+    "materials": "Cherry, Port Orford cedar kumiko, ginwashi mizutama paper",
+    "dimensions": "8\" × 8\" base",
+    "wiring": "Battery or wired",
+    "excerpt": "Cherry lamp with Port Orford cedar kumiko panels and water drop paper",
+    "description": "This lamp's four panels are backed by ginwashi mizutama, an elegant handmade paper whose name means \"drops of water\" — a motif visible in the organic dot pattern embedded in the sheet. Intriguing fibrous inclusions further texture the light as it passes through.\n\nThe kumiko pattern takes its name, igeta (井桁), from the Japanese word for \"well frame\" — the lattice placed over a community well, a symbol of water, shared resources, and the bonds they sustain. That meaning is made literal here: the kanji 井 itself appears at the center of each panel, so the symbol and the structure become one.\n\nThe base is just over 8 inches square, well proportioned for an end table or nightstand, and can be configured for battery or conventional wiring to suit any placement. A removable floating cap completes the lamp form, giving it the self-contained quality of a traditional garden stone lamp.",
+    "primaryImage": "/assets/images/igeta-lantern/featured.jpeg",
+    "images": [
+      "/assets/images/igeta-lantern/Igeta - 1.png",
+      "/assets/images/igeta-lantern/Igeta - 2.png"
+    ]
+  },
+  {
+    "title": "Water Drop Lamp",
+    "slug": "water-drop-lantern",
+    "category": "lighting",
+    "featured": false,
+    "orientation": "portrait",
+    "homeSection": "lighting",
+    "homeLayout": "split",
+    "date": "2024-02-19",
+    "materials": "Cherry, ginwashi mizutama paper, mitsugumite kumiko",
+    "dimensions": "8\" × 8\" base",
+    "wiring": "Battery or wired",
+    "excerpt": "Cherry table lamp with mitsugumite kumiko panels and water drop paper",
+    "description": "The four panels of this lamp are backed by ginwashi mizutama, a handmade paper whose name evokes its character: mizutama means \"drops of water,\" an organic dot pattern woven into every sheet. Fibrous inclusions give the illuminated surface a quiet, living quality.\n\nWhat sets this lamp apart is its kumiko lattice, worked in the mitsugumite pattern — an intricate three-way joint that produces a continuous field of interlocking triangles and diamonds across each panel. The construction is as compelling up close as it is from across the room. Tapered legs and a clean-lined cap give the piece a lighter, more open presence than a traditional box lamp.\n\nThe base is just over 8 inches square, suited to an end table or nightstand, and available in battery or wired configurations.",
+    "primaryImage": "/assets/images/water-drop-lantern/featured.jpeg",
+    "images": [
+      "/assets/images/water-drop-lantern/Lamp with chapeau - 2 of 6.jpeg",
+      "/assets/images/water-drop-lantern/Lamp with chapeau - 3 of 6.jpeg",
+      "/assets/images/water-drop-lantern/Lamp with chapeau - 4 of 6.jpeg",
+      "/assets/images/water-drop-lantern/Lamp with chapeau - 5 of 6.jpeg",
+      "/assets/images/water-drop-lantern/Lamp with chapeau - 6 of 6.jpeg"
+    ]
+  },
+  {
+    "title": "Quartersawn Redwood Parquet Table",
+    "slug": "parquet-table",
+    "category": "furniture",
+    "featured": true,
+    "homeSection": "furniture",
+    "homeLayout": "span",
+    "date": "2026-03-05",
+    "materials": "Quartersawn redwood, walnut",
+    "dimensions": "40\" × 40\"",
+    "excerpt": "Outdoor coffee table with walnut accents and a slatted lower shelf",
+    "description": "Designed for an intimate outdoor seating area, this low table is milled from quartersawn, knot-free redwood — a wood prized for its resistance to warping and weathering. The frame is joined with hardwood mortise and tenon joinery, pinned with walnut for rock-solid mechanical strength that needs no fasteners to hide.\n\nThe centerpiece is the tabletop itself: a parquet pattern of four mitered quadrants, each filled with closely spaced redwood slats running in alternating directions. The result is a surface with the visual rhythm of traditional inlaid flooring, reimagined in a single species. Below, a slatted shelf on the lower stretchers adds practical storage, while height-adjustable feet protect the wood and keep the table level on uneven surfaces.",
+    "primaryImage": "/assets/images/parquet-table/featured.jpeg",
+    "images": [
+      "/assets/images/parquet-table/Parquet Table - 1.jpeg",
+      "/assets/images/parquet-table/Parquet Table - 2.jpeg"
+    ]
+  },
+  {
+    "title": "Kurotake",
+    "titleJapanese": "黒竹",
+    "slug": "kurotake-panel",
+    "category": "panels",
+    "featured": true,
+    "homeSection": "panels",
+    "homeLayout": "split",
+    "date": "2023-01-01",
+    "materials": "Port Orford cedar, western red cedar, mulberry paper, black bamboo",
+    "dimensions": "24\" × 36\"",
+    "excerpt": "Port Orford cedar shoji panel in a western red cedar frame, with black bamboo escaping the boundary",
+    "description": "There is a moment in ikebana, the Japanese art of flower arranging, when a branch is placed not to fill a space but to claim it — to extend the composition into the room and make the room part of the work. Kurotake works the same way.\n\nThe panel itself is spare: a simple grid of Port Orford cedar set within a warm western red cedar frame, backed by translucent paper that catches and diffuses light. The grid asks little of the eye. That restraint is deliberate — it clears the stage for the black bamboo, which enters from below, crosses the panel on the diagonal, and exits above the frame entirely, carrying the eye out into the lived space beyond.\n\nThe contrast is stark and intentional: the warm cedar tones of the panel against the near-black of the bamboo, the rigorous geometry of the grid against the unselfconscious arc of the stem. One is made, the other grown. Together they propose that the boundary between an object and its setting is a convention, not a fact.\n\nAt 24 inches wide by 36 inches high, Kurotake suits a hallway, an entryway, or any wall with enough breathing room to let the bamboo inhabit its surroundings.",
+    "primaryImage": "/assets/images/kurotake-panel/featured.jpg",
+    "images": []
+  },
+  {
+    "title": "Segmented Bowls",
+    "slug": "segmented-bowls",
+    "category": "bowls",
+    "featured": true,
+    "showInGrid": false,
+    "date": "2025-10-01",
+    "materials": "Purpleheart, maple, iroko (varies)",
+    "dimensions": "",
+    "excerpt": "Turned bowls assembled from multiple wood species for bold color and pattern",
+    "description": "A segmented bowl begins not with a log but with a design: rings of precisely cut segments, glued up in alternating species, then turned on the lathe to reveal the pattern hidden in the geometry. The technique frees the bowl from the constraints of any single piece of wood — size is limited only by imagination, and the color palette is as broad as the available species.\n\nThe bowl shown here combines purpleheart, maple, and iroko in a checkerboard pattern that shifts as the eye moves around the form. Other combinations are equally possible: the contrast between light and dark species, warm and cool tones, fine and coarse grain. Segmented bowls make particularly fine salad bowls, where their generous size and food-safe finish earn their place at the table as much as their beauty. Every bowl is a one-of-a-kind composition, designed and built to order.",
+    "primaryImage": "/assets/images/segmented-bowls/featured.png",
+    "images": [
+      "/assets/images/segmented-bowls/Bowl - 15 Background Removed.png",
+      "/assets/images/segmented-bowls/Bowl - 6 Background Removed.png",
+      "/assets/images/segmented-bowls/Bowl - 8 Background Removed.png"
+    ]
+  },
+  {
+    "title": "Butterfly Garden Bench",
+    "slug": "butterfly-bench",
+    "category": "furniture",
+    "featured": false,
+    "date": "2024-08-24",
+    "materials": "Quartersawn redwood, walnut",
+    "dimensions": "",
+    "excerpt": "Redwood bench for the garden with an accommodating butterfly seat",
+    "description": "Crafted for a client seeking durability in a small space, the body of this butterfly garden bench is built from quartersawn redwood, chosen for its stability in fluctuating temperatures and humidity. The bench's strength is further ensured by mortise and tenon joinery, enhanced with walnut drawbores that provide both adhesive and mechanical holding power.\n\nThe seat boards are connected by walnut loose tenons, adding a touch of visual interest to the design. A gentle bevel in the seat offers comfort, while simple yet functional slats on the lower stretchers provide space for storing baskets or shoes, making this bench as practical as it is beautiful.",
+    "primaryImage": "/assets/images/butterfly-bench/featured.jpeg",
+    "images": [
+      "/assets/images/butterfly-bench/Butterfly Bench - 1 of 6.jpeg",
+      "/assets/images/butterfly-bench/Butterfly Bench - 2 of 6.jpeg",
+      "/assets/images/butterfly-bench/Butterfly Bench - 3 of 6.jpeg",
+      "/assets/images/butterfly-bench/Butterfly Bench - 4 of 6.jpeg",
+      "/assets/images/butterfly-bench/Butterfly Bench - 5 of 6.jpeg",
+      "/assets/images/butterfly-bench/Butterfly Bench - 6 of 6.jpeg"
+    ]
+  },
+  {
+    "title": "Origami Tessellation Tables",
+    "slug": "coffee-table",
+    "category": "furniture",
+    "featured": false,
+    "date": "2023-01-01",
+    "materials": "Figured cherry",
+    "dimensions": "",
+    "excerpt": "A set of figured cherry hexagonal coffee tables that compose into any configuration",
+    "description": "In an origami tessellation, a single repeated element folds and connects to fill a plane in any direction, the whole pattern emerging from the logic of one unit. These tables work the same way. Each is a hexagon of identical size, its top in figured cherry whose grain catches light differently from every angle. Because the tables share the same geometry, their tops meet in a single unbroken plane whenever two or more are pushed together — no mismatched heights, no awkward gaps.\n\nThe configurations are genuinely open-ended. Line them up for a long, low surface along a sofa. Cluster them for a large board game table. Scatter them around a room for a party and pull them back together afterward. A set of five is shown here, but the tables are designed to be ordered in any number, so the tessellation can grow with the space.\n\nThe legs are cherry; the tops are figured cherry, selected for their warmth and figure. Built to order in any quantity.",
+    "primaryImage": "/assets/images/coffee-table/featured.jpeg",
+    "images": [
+      "/assets/images/coffee-table/gap.jpeg",
+      "/assets/images/coffee-table/side.jpeg",
+      "/assets/images/coffee-table/together.jpeg"
+    ]
+  },
+  {
+    "title": "Shoji Lamp",
+    "titleJapanese": "障子",
+    "slug": "shoji-lantern",
+    "category": "lighting",
+    "featured": false,
+    "date": "2024-01-18",
+    "materials": "Cherry, Warlon, black bamboo, asa-no-ha kumiko",
+    "dimensions": "",
+    "wiring": "Battery or wired",
+    "excerpt": "Cherry table lamp with shoji panels and an asa-no-ha kumiko medallion",
+    "description": "Designed for an end table and well suited to reading light, this lamp balances opposing energies: the flared legs and gently curved roof push outward and upward, while the grid of shoji panes and the central kumiko medallion draw the eye inward. The tension between those forces gives the piece its character.\n\nThe panes are backed by Warlon, a translucent material chosen for its fire resistance — though the lamp itself runs on cool LEDs. At the center of the front panel, a single asa-no-ha medallion provides a focal point: the hemp leaf pattern, an ancient symbol of growth and resilience. A piece of black bamboo crowns the roofline, a small whimsical flourish against the wider sweep of the eaves.\n\nThis lamp was made in the workshop of Jay van Arsdale, one of the foremost kumiko artists in the West, whose patient mentorship shaped both the piece and the maker. Available in battery or wired configurations.",
+    "primaryImage": "/assets/images/shoji-lantern/featured.jpeg",
+    "images": [
+      "/assets/images/shoji-lantern/shoji_lamp2.jpeg"
+    ]
+  },
+  {
+    "title": "Sakura Wall Panel",
+    "titleJapanese": "組子",
+    "slug": "kumiko-panel",
+    "category": "panels",
+    "featured": false,
+    "homeSection": "panels",
+    "homeLayout": "split",
+    "date": "2023-01-01",
+    "materials": "Port Orford cedar, western red cedar, Warlon",
+    "dimensions": "23\" × 14\"",
+    "excerpt": "Sakura kumiko wall panel in Port Orford and Western red cedars",
+    "description": "The sakura pattern — named for the cherry blossom, Japan's most beloved symbol of fleeting beauty — is among the most demanding in the kumiko tradition. Each flower emerges from a field of mitsugumite triangles, its petals formed by precisely angled pieces fitted without glue or fasteners. The two-tone palette here, Port Orford cedar for the ground lattice and Western red cedar for the blossoms, makes the pattern legible across the room while rewarding close inspection with the warmth of the contrasting grains.\n\nThe panel is backed by Warlon, a translucent material that softens the shadow play behind the lattice and gives the piece a luminous quality in raking light. Hung near a window, the panel becomes something different at different hours of the day.\n\nAt 23 inches wide by 14 inches high, the panel suits a hallway, a study, or any wall where a quiet, contemplative object is welcome. Paper and wood species can be varied to order.",
+    "primaryImage": "/assets/images/kumiko-panel/featured.jpg",
+    "images": []
+  },
+  {
+    "title": "Andon",
+    "titleJapanese": "行灯",
+    "slug": "andon",
+    "category": "lighting",
+    "featured": false,
+    "date": "2022-02-01",
+    "materials": "Walnut, mulberry paper",
+    "dimensions": "",
+    "wiring": "Battery or wired",
+    "excerpt": "Walnut andon with proud joinery and handmade organic paper panels",
+    "description": "The andon is one of the oldest Japanese lamp forms — a simple paper-screened box that turns light into atmosphere. This early piece follows that tradition closely, letting the materials speak without embellishment.\n\nThe frame is walnut, with proud joinery at the corners that makes the construction legible and intentional. The screens are mulberry paper embedded with fragments of dried plant material, so each panel holds its own quiet texture — bits of leaf and stem suspended in the sheet, revealed when the lamp is lit.\n\nUnderstated and versatile, the andon suits a bedside table, a reading corner, or anywhere a warm and gentle light is welcome. Available in battery or wired configurations, and made to order with paper chosen to suit the setting.",
+    "primaryImage": "/assets/images/andon/featured.jpeg",
+    "images": [
+      "/assets/images/andon/Andon - 2 of 2.jpeg"
+    ]
+  },
+  {
+    "title": "Ma Triptych",
+    "titleJapanese": "間",
+    "slug": "ma-triptych",
+    "category": "panels",
+    "featured": false,
+    "date": "2023-01-01",
+    "materials": "Port Orford cedar, redwood, Warlon",
+    "dimensions": "40\" × 30\"",
+    "excerpt": "Port Orford cedar and redwood triptych panel with Warlon backing, held by friction alone",
+    "description": "The kanji for ma (間) is itself a triptych: a gate in two parts, and between them, sunlight. It is one of those rare characters where the written form enacts its own meaning — the light does not fill the gate, it inhabits the interval. This panel works the same way.\n\nAt 40 inches wide by 30 inches high, the composition is divided into three sections. The flanking panels carry a whimsical, asymmetric lattice of rectangular forms in Port Orford cedar and redwood; the center opens into a field of graduated rectangles, the largest of them anchoring the eye before releasing it into the Warlon-backed expanse. That open center is not empty — it is the point. Ma is the Japanese concept of negative space, the understanding that what is absent shapes meaning as surely as what is present.\n\nNot a drop of glue holds this panel together. Every element is secured by the precision of the joinery itself, friction bearing the full load of the construction. It is a discipline that demands absolute accuracy — and makes the finished piece remarkably honest about how it is made.\n\nThe Warlon backing makes the panel suitable for window installation, though it is equally at home on any wall where the quality of light and the pace of looking matter.",
+    "primaryImage": "/assets/images/ma-triptych/featured.jpg",
+    "images": []
+  },
+  {
+    "title": "Found Wood Bowls",
+    "slug": "found-wood-bowls",
+    "category": "bowls",
+    "featured": false,
+    "showInGrid": false,
+    "date": "2025-10-01",
+    "materials": "Urban salvage hardwoods (sycamore, black oak, birch, plum, varies)",
+    "dimensions": "",
+    "excerpt": "Turned bowls from urban trees rescued from the arborist's wood chipper — species you cannot buy",
+    "description": "When a tree comes down in a city — to a storm, a disease, a construction project, or simply old age — it almost always ends up as mulch. These bowls begin at that moment instead. Working with urban arborists, unusual and often remarkable species are rescued just before they disappear: sycamore, black oak, birch, plum, and others that simply do not appear in any lumber yard or woodworking supplier. Each log is a small mystery until it meets the lathe.\n\nThe results reflect that. The grain patterns, colors, and character marks of city-grown trees differ from their forest counterparts — tighter rings, unexpected figure, the occasional scar or inclusion that becomes a feature rather than a flaw. No two bowls are alike, and no two species tell the same story. What they share is a prior life in the urban canopy, and a second life on your table.",
+    "primaryImage": "/assets/images/found-wood-bowls/featured.png",
+    "images": [
+      "/assets/images/found-wood-bowls/Bowl - 11 Background Removed.png",
+      "/assets/images/found-wood-bowls/Bowl - 12 Background Removed.png",
+      "/assets/images/found-wood-bowls/Bowl - 13 Background Removed.png",
+      "/assets/images/found-wood-bowls/Bowl - 14 Background Removed.png",
+      "/assets/images/found-wood-bowls/Bowl - 2 Background Removed.png",
+      "/assets/images/found-wood-bowls/Bowl - 3 Background Removed.png",
+      "/assets/images/found-wood-bowls/Bowl - 4 Background Removed.png"
+    ]
+  },
+  {
+    "title": "Hand Carved Bowls",
+    "slug": "carved-bowls",
+    "category": "bowls",
+    "featured": false,
+    "showInGrid": false,
+    "date": "2025-01-01",
+    "materials": "Urban salvage hardwoods (sycamore, black oak, birch, plum, varies)",
+    "dimensions": "",
+    "excerpt": "Hand carved bowls from urban salvage wood in forms no lathe could produce",
+    "description": "When a tree comes down in a city, it almost always ends up as mulch. These bowls begin at that moment instead. Working with urban arborists, unusual species are rescued just before they disappear — sycamore, black oak, birch, plum, and others that simply do not appear in any lumber yard. Each piece of wood arrives with its own character, and the carving follows it.\n\nA carving gouge, axe, and adze answer to no predetermined geometry. Where a lathe naturally favors round, symmetrical forms, hand carving opens the full range: elongated, irregular, shallow, deep, or something that resists easy description. The tool marks that remain are not errors; they are the record of how the piece was made, and they give the surface a warmth that no sanded finish can replicate. Each bowl is unique in both species and form — a direct conversation between the maker and a particular piece of wood that would otherwise no longer exist.",
+    "primaryImage": "/assets/images/carved-bowls/featured.png",
+    "images": [
+      "/assets/images/carved-bowls/Bowl - 11.jpeg",
+      "/assets/images/carved-bowls/Bowl - 9 Background Removed.png"
+    ]
+  },
+  {
+    "title": "Kumiko Wall Cabinet",
+    "titleJapanese": "組子",
+    "slug": "wall-cabinet",
+    "category": "furniture",
+    "featured": false,
+    "date": "2022-06-01",
+    "materials": "Cherry, mulberry paper",
+    "dimensions": "",
+    "excerpt": "Cherry wall-hung cabinet with kumiko and mulberry paper sliding doors",
+    "description": "This small wall cabinet was designed to keep the tangle of a home media setup quietly out of sight. The solution needed to be functional without being furtive, so the cabinet itself became the object of attention.\n\nThe sliding front is a minimalist kumiko grid backed by mulberry paper: clean horizontal lines that read as a shoji screen in miniature. The paper diffuses what's behind it without concealing it entirely, giving the cabinet a presence that earns its place on the wall. Proud joinery at the corners provides an interior shelf and the same structural frankness found throughout the portfolio.\n\nThe piece hangs flush to the wall and is sized to accommodate standard media equipment. Built to order; dimensions and wood species can be varied to suit the installation.",
+    "primaryImage": "/assets/images/wall-cabinet/featured.jpeg",
+    "images": [
+      "/assets/images/wall-cabinet/wall-cabinet-joinery.jpeg"
+    ]
+  },
+  {
+    "title": "Writer's Desk",
+    "slug": "writers-desk",
+    "category": "furniture",
+    "featured": false,
+    "date": "2020-05-01",
+    "materials": "Walnut, maple",
+    "dimensions": "",
+    "excerpt": "A compact walnut and maple desk with a full-width drawer",
+    "description": "A good writing desk asks little of the room and much of the person sitting at it. This one is compact enough for a small bedroom or a corner of a larger space, but full-sized enough for serious work — a laptop, a notebook, the small architecture of a productive surface. A full-width drawer keeps the essentials close without cluttering the top.\n\nThe two-tone construction — a rich walnut top on tapered maple legs — gives the piece a mid-century lightness while grounding it with the warmth of the darker wood. The contrast deepens as the walnut ages, making the desk a different object in five years than it is today. Mortise and tenon joinery throughout. Built to order.",
+    "primaryImage": "/assets/images/writers-desk/featured.jpeg",
+    "images": []
+  },
+  {
+    "title": "The Welcome Bench",
+    "slug": "welcome-bench",
+    "category": "furniture",
+    "featured": false,
+    "date": "2022-01-01",
+    "materials": "Cherry",
+    "dimensions": "",
+    "excerpt": "A cherry entryway bench with slatted shoe storage and whimsical curves",
+    "description": "The entryway is the first room and the last — the place where arrivals happen and departures are gathered. This bench is designed for that threshold moment: a seat for pulling shoes on and off, and a slatted lower shelf that keeps the floor clear without making the clutter invisible entirely. Shoes belong here. That's the point.\n\nThe piece is cherry throughout, with mortise and tenon joinery at every connection. What lifts it beyond the purely functional are the curves — a gently arched apron and flared legs that give the bench a light, almost playful stance. It stands in an entryway the way a good host does: useful, welcoming, and quietly good-looking.\n\nBuilt to order; dimensions can be varied to suit the space.",
+    "primaryImage": "/assets/images/welcome-bench/featured.jpeg",
+    "images": []
+  },
+  {
+    "title": "Shiro Bed",
+    "slug": "shiro-bed",
+    "category": "furniture",
+    "featured": false,
+    "date": "2023-01-01",
+    "materials": "Cherry",
+    "dimensions": "",
+    "excerpt": "A fully knock-down cherry platform bed assembled entirely with Shiro joinery — no hardware, no tools",
+    "description": "The Shiro joint — a three-way interlock combining a half-lap cross joint with an intersecting bridle joint — is one of the more elegant solutions in the Japanese joinery tradition. Each joint assembles and disassembles by hand, without tools or hardware, and locks under the weight it bears. This bed is built entirely on that principle: every connection is a Shiro joint, and the whole frame breaks down into pieces that fit in a small vehicle.\n\nThat makes it an honest companion for anyone who moves frequently — students, renters, people who haven't decided where they'll be in five years. The bed goes up in minutes and comes apart just as quickly, without bolts to strip or allen keys to lose. What it doesn't sacrifice is solidity: assembled, it is as rigid and quiet as any bed in the portfolio.\n\nThe cherry frame is clean-lined and low, in the platform tradition. Built to order; wood species can be varied to suit.",
+    "primaryImage": "/assets/images/shiro-bed/featured.jpeg",
+    "images": []
+  },
+  {
+    "title": "Tokyō – Architectural Study",
+    "titleJapanese": "斗栱",
+    "slug": "tokyo-bracket",
+    "category": "objects",
+    "featured": false,
+    "homeSection": "objects",
+    "homeLayout": "split",
+    "date": "2022-01-08",
+    "materials": "",
+    "dimensions": "",
+    "excerpt": "Scale model of a roof bracket from the Shōrōmon at the Japanese Tea Garden in San Francisco",
+    "description": "The tokyō is one of the most demanding problems in traditional Japanese carpentry — a three-dimensional system of interlocking brackets that distributes the enormous weight of a tiled roof outward from a single column, tier by tier, without nails or adhesive. The logic is purely geometric, and the results are extraordinary: under laboratory testing, tokyō assemblies have withstood simulated tremors exceeding 10.1 on the Richter scale — a magnitude no known fault on earth can produce.\n\nThis scale model was built from measurements and photographs taken inside the Shōrōmon, the Bell Tower Gate at the Japanese Tea Garden in San Francisco — an access granted as a rare honor. The finished model was installed as a temporary exhibit at the Garden from March through May 2024, the first opportunity visitors had ever had to inspect one of the gate's brackets at ground level, with the originals visible overhead.\n\nThe work was guided by Richard Wiborg, whose historical, aesthetic, and practical knowledge of bracket systems is without equal. His mentorship shaped both the model and the understanding behind it.",
+    "primaryImage": "/assets/images/tokyo-bracket/featured.jpeg",
+    "images": [
+      "/assets/images/tokyo-bracket/Bracket - 1 of 2.jpeg",
+      "/assets/images/tokyo-bracket/gate-model.jpeg",
+      "/assets/images/tokyo-bracket/midwinter-fair.png"
+    ]
+  },
+  {
+    "title": "Torii Frame",
+    "slug": "torii-frame",
+    "category": "objects",
+    "featured": false,
+    "date": "2022-02-19",
+    "materials": "Cherry",
+    "dimensions": "",
+    "excerpt": "A freestanding double-sided cherry display frame in a torii gate form",
+    "description": "A torii marks a threshold — the gateway between the ordinary and the considered. This frame borrows that form: two uprights, a stepped crossbeam, a base, and the open interval between them that holds whatever you choose to display.\n\nThe frame stands freely and presents both faces equally, making it well suited to hallways, mantels, open shelving, or any transitional space where objects are seen from more than one direction. It is designed for two photographs displayed back to back, or for any two-sided object — a postcard, a document, a keepsake — that deserves to be seen whole.\n\nDisplay options are flexible. Photo triangles give a floating effect that lets the object breathe within the frame; mat board provides a more formal border and can be cut to different sizes on each face to accommodate objects of unequal dimensions. Made in cherry. Built to order.",
+    "primaryImage": "/assets/images/torii-frame/featured.jpeg",
+    "images": [
+      "/assets/images/torii-frame/verso.jpeg"
+    ]
+  },
+  {
+    "title": "Eight Nights, One Way",
+    "slug": "hanukkiah",
+    "category": "objects",
+    "featured": false,
+    "homeSection": "objects",
+    "homeLayout": "split",
+    "date": "2021-12-01",
+    "materials": "Cherry",
+    "dimensions": "",
+    "excerpt": "A cherry jigsaw Hanukkiah with interlocking candleholders for families with young children",
+    "description": "This Hanukkiah turns the ritual of the holiday into a nightly puzzle. Eight candleholders ride a sliding dovetail track, each one shaped with irregular edges that interlock with their neighbors in exactly one configuration. The family's job — especially the children's — is to find it.\n\nThere is older precedent for the solving — the Maccabees were resourceful puzzlers too, finding the one way through when one night's oil had to last eight.\n\nThe holders can be arranged in playful trial patterns each night, sliding and rotating until the pieces suddenly resolve into their one true arrangement. Then the candles go in, and the puzzle becomes a menorah. The dovetail track keeps everything stable once assembled, so the light stays steady even after the solving is done.\n\nMade to order in any wood species; the track and candleholders can be cut from contrasting woods for added visual interest. Brass candle cups included.",
+    "primaryImage": "/assets/images/hanukkiah/featured.jpeg",
+    "images": [
+      "/assets/images/hanukkiah/assembled.jpeg"
+    ]
+  },
+  {
+    "title": "Cherry and Birdseye Maple Tansu",
+    "titleJapanese": "箪笥",
+    "slug": "tansu",
+    "category": "furniture",
+    "featured": true,
+    "date": "2023-01-01",
+    "materials": "Cherry, birdseye maple",
+    "dimensions": "",
+    "excerpt": "Cherry and birdseye maple tansu custom-built to echo a staircase, with modular cases stackable in any configuration",
+    "description": "The tansu is a Japanese storage tradition that prizes modularity, craftsmanship, and the beauty of the object as much as its function. This three-tier example takes that tradition seriously on every count.\n\nThe piece was designed for a specific room, its stepped profile echoing the rise of the staircase railing it abuts — a custom fit that makes the cabinet feel inevitable in its setting rather than placed there. Proud mortise and through-tenon joinery marks every corner, making the construction legible and decorative at once. Drawers are fitted with half-blind dovetails; doors slide wood-on-wood in both vertical and horizontal orientations, their birdseye maple panels bringing the same chatoyance to the tansu that quilted maple brings to the credenza — a figure that catches light differently from every angle.\n\nBoth faces of the cabinet are finished show sides. Drawers slide free of their cases from either direction; doors open on both faces. A tansu positioned between two spaces gives each its own access to the same storage — a genuinely useful property in an open-plan room, and one that makes the joinery worth admiring from every direction.\n\nThe three cases stack and separate independently, and the modular design extends beyond this installation: one case, two, or more can be combined in configurations suited to any space. Built to order.",
+    "primaryImage": "/assets/images/tansu/featured.jpeg",
+    "images": []
+  }
+]
