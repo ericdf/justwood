@@ -3,6 +3,7 @@ layout: base.njk
 title: Panels
 permalink: /panels/
 activeCat: panels
+needsJapanese: true
 ---
 
 <div class="px-8 pt-16 pb-10 border-b border-ash">
@@ -17,8 +18,7 @@ activeCat: panels
     {% if piece.category == "panels" %}
     <div class="group overflow-hidden">
       <a href="/work/{{ piece.slug }}/" class="block">
-        <img src="{{ piece.primaryImage }}" alt="{{ piece.title }}" loading="lazy"
-             class="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]">
+        {% image piece.primaryImage, piece.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">

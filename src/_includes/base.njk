@@ -9,9 +9,14 @@
   <meta property="og:image" content="{{ site.url }}{{ primaryImage }}">
   {% endif %}
   <meta property="og:title" content="{% if title %}{{ title }} — {% endif %}{{ site.title }}">
+  {% if preloadImage %}{% imagePreload preloadImage, "100vw" %}{% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {% if needsJapanese %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap">
+  {% else %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap">
+  {% endif %}
   <link rel="stylesheet" href="/assets/css/main.css">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
 </head>

@@ -1,6 +1,8 @@
 ---
 layout: base.njk
 title: false
+preloadImage: "assets/images/credenza/featured.jpeg"
+needsJapanese: true
 ---
 
 {# Hero — credenza #}
@@ -33,9 +35,7 @@ title: false
     <div class="col-span-2 group overflow-hidden">
       <a href="/work/heirloom-bed/" class="block overflow-hidden"
          style="height: max(280px, 40vw);">
-        <img src="{{ bed.primaryImage }}" alt="{{ bed.title }}" loading="lazy"
-             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-             style="object-position: center 20%">
+        {% image bed.primaryImage, bed.title, "100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]", "object-position: center 20%" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-2xl font-light text-charcoal">{{ bed.title }}</h3>
@@ -44,8 +44,7 @@ title: false
 
     <div class="col-span-2 group overflow-hidden">
       <a href="/work/parquet-table/" class="block" style="height: max(280px, 40vw);">
-        <img src="{{ table.primaryImage }}" alt="{{ table.title }}" loading="lazy"
-             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]">
+        {% image table.primaryImage, table.title, "100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-2xl font-light text-charcoal">{{ table.title }}</h3>
@@ -74,8 +73,7 @@ title: false
     <div class="group">
       <a href="/work/igeta-lantern/" class="flex items-center justify-center"
          style="background-color: #EDE8DF; height: max(280px, 49vw);">
-        <img src="{{ igeta.primaryImage }}" alt="{{ igeta.title }}" loading="lazy"
-             class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]">
+        {% image igeta.primaryImage, igeta.title, "(min-width: 768px) 50vw, 100vw", "lazy", "max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">
@@ -88,8 +86,7 @@ title: false
     <div class="group">
       <a href="/work/water-drop-lantern/" class="flex items-center justify-center"
          style="background-color: #EDE8DF; height: max(280px, 49vw);">
-        <img src="{{ waterdrop.primaryImage }}" alt="{{ waterdrop.title }}" loading="lazy"
-             class="max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]">
+        {% image waterdrop.primaryImage, waterdrop.title, "(min-width: 768px) 50vw, 100vw", "lazy", "max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">{{ waterdrop.title }}</h3>
@@ -118,9 +115,7 @@ title: false
 
     <div class="group overflow-hidden">
       <a href="/work/kurotake-panel/" class="block">
-        <img src="{{ kurotake.primaryImage }}" alt="{{ kurotake.title }}" loading="lazy"
-             width="2748" height="3652"
-             class="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]">
+        {% image kurotake.primaryImage, kurotake.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">
@@ -132,9 +127,7 @@ title: false
 
     <div class="group overflow-hidden">
       <a href="/work/kumiko-panel/" class="block">
-        <img src="{{ sakura.primaryImage }}" alt="{{ sakura.title }}" loading="lazy"
-             width="3772" height="2344"
-             class="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]">
+        {% image sakura.primaryImage, sakura.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">
@@ -165,8 +158,7 @@ title: false
       {% if card.subcategory == "segmented" %}
       <div class="group overflow-hidden">
         <a href="/bowls/segmented/" class="block bg-paper" style="height: max(280px, 35vw);">
-          <img src="{{ card.image }}" alt="Segmented bowl" loading="lazy"
-               class="w-full h-full {% if card.fit == 'contain' %}object-contain{% else %}object-cover{% endif %} transition-transform duration-700 group-hover:scale-[1.02]">
+          {% image card.image, "Segmented bowl", "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-full " + ("object-contain" if card.fit == "contain" else "object-cover") + " transition-transform duration-700 group-hover:scale-[1.02]" %}
         </a>
       </div>
       {% endif %}
@@ -183,8 +175,7 @@ title: false
       {% if card.subcategory == "found" %}
       <div class="group overflow-hidden">
         <a href="/bowls/found/" class="block bg-paper" style="height: max(280px, 35vw);">
-          <img src="{{ card.image }}" alt="Found wood bowl" loading="lazy"
-               class="w-full h-full {% if card.fit == 'contain' %}object-contain{% else %}object-cover{% endif %} transition-transform duration-700 group-hover:scale-[1.02]">
+          {% image card.image, "Found wood bowl", "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-full " + ("object-contain" if card.fit == "contain" else "object-cover") + " transition-transform duration-700 group-hover:scale-[1.02]" %}
         </a>
       </div>
       {% endif %}
@@ -202,8 +193,7 @@ title: false
       <div class="col-span-2 group overflow-hidden">
         <a href="/bowls/carved/" class="flex items-center justify-center bg-paper p-6"
            style="height: max(280px, 40vw);">
-          <img src="{{ card.image }}" alt="Hand carved bowl" loading="lazy"
-               class="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]">
+          {% image card.image, "Hand carved bowl", "100vw", "lazy", "max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
         </a>
       </div>
       {% endif %}
@@ -231,8 +221,7 @@ title: false
     <div class="group overflow-hidden">
       <a href="/work/tokyo-bracket/" class="flex items-center justify-center bg-paper"
          style="height: max(280px, 35vw);">
-        <img src="{{ tokyo.primaryImage }}" alt="{{ tokyo.title }}" loading="lazy"
-             class="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]">
+        {% image tokyo.primaryImage, tokyo.title, "(min-width: 768px) 50vw, 100vw", "lazy", "max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">
@@ -244,8 +233,7 @@ title: false
 
     <div class="group overflow-hidden">
       <a href="/work/hanukkiah/" class="block" style="height: max(280px, 35vw);">
-        <img src="{{ hanukk.primaryImage }}" alt="{{ hanukk.title }}" loading="lazy"
-             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]">
+        {% image hanukk.primaryImage, hanukk.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">{{ hanukk.title }}</h3>

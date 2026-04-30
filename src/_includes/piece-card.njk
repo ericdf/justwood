@@ -3,12 +3,7 @@
 
     {# Image #}
     <div class="overflow-hidden bg-paper {% if piece.featured %}aspect-[4/3]{% else %}aspect-[3/4]{% endif %}">
-      <img
-        src="{{ piece.primaryImage }}"
-        alt="{{ piece.title }}"
-        loading="lazy"
-        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-      >
+      {% image piece.primaryImage, piece.title, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" %}
     </div>
 
     {# Text #}

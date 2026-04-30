@@ -19,8 +19,7 @@ activeCat: furniture
       <a href="/work/{{ piece.slug }}/"
          class="block"
          style="height: max(280px, {% if piece.featured %}40vw{% else %}35vw{% endif %});">
-        <img src="{{ piece.primaryImage }}" alt="{{ piece.title }}" loading="lazy"
-             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]">
+        {% image piece.primaryImage, piece.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display {% if piece.featured %}text-2xl{% else %}text-xl{% endif %} font-light text-charcoal">{{ piece.title }}</h3>

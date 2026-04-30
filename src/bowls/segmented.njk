@@ -37,8 +37,7 @@ permalink: /bowls/segmented/
       @click="open = true; current = {{ loop.index0 }}"
       class="flex-1 overflow-hidden focus:outline-none group min-w-0 bg-paper"
     >
-      <img src="{{ img }}" alt="Segmented bowl {{ loop.index }}" loading="lazy"
-           class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]">
+      {% image img, "Segmented bowl " + loop.index, "(min-width: 768px) 25vw, 100vw", "lazy", "w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]" %}
     </button>
     {% endfor %}
   </div>
@@ -48,8 +47,7 @@ permalink: /bowls/segmented/
     {% for img in images %}
     <button @click="open = true; current = {{ loop.index0 }}"
             class="w-full focus:outline-none bg-paper p-4">
-      <img src="{{ img }}" alt="Segmented bowl {{ loop.index }}" loading="lazy"
-           class="w-full h-auto object-contain">
+      {% image img, "Segmented bowl " + loop.index, "100vw", "lazy", "w-full h-auto object-contain" %}
     </button>
     {% endfor %}
   </div>
