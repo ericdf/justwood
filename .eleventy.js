@@ -30,7 +30,7 @@ module.exports = function (eleventyConfig) {
       const metadata = await Image(fullSrc, {
         widths:    [400, 800, 1200, 1600],
         formats:   ["avif", "webp", "jpeg"],
-        outputDir: "./_site/assets/images/optimised/",
+        outputDir: "./src/assets/images/optimised/",
         urlPath:   "/assets/images/optimised/",
       });
       const attrs = {
