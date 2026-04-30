@@ -22,6 +22,11 @@
     font-family: "Cormorant Garamond", Georgia, serif;
     font-weight: 300;
   }
+
+  /* Allow <picture> wrappers from eleventy-img to be layout-transparent */
+  picture {
+    display: contents;
+  }
 }
 
 /* Anchor targets: clear both sticky bars (main nav ~52px + category nav ~44px) */

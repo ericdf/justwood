@@ -13,11 +13,7 @@ layout: base.njk
 {# Hero — portrait: solid warm bg, contained; standard: full-width cover #}
 {% if piece.orientation == 'portrait' %}
 <section class="piece-hero relative w-full h-[75vh] flex items-center justify-center" style="background-color: #EDE8DF;">
-  <img
-    src="{{ piece.primaryImage }}"
-    alt="{{ piece.title }}"
-    class="max-h-full w-auto object-contain"
-  >
+  {% image piece.primaryImage, piece.title, "100vw", "eager", "max-h-full w-auto object-contain" %}
   <div class="scroll-hint-wrap" style="color: var(--color-ash);"
        onclick="document.querySelector('.piece-content').scrollIntoView({behavior:'smooth'})">
     <div class="scroll-hint">{% include "scroll-chevron.njk" %}</div>
@@ -25,11 +21,7 @@ layout: base.njk
 </section>
 {% else %}
 <section class="piece-hero relative w-full h-[75vh] overflow-hidden">
-  <img
-    src="{{ piece.primaryImage }}"
-    alt="{{ piece.title }}"
-    class="w-full h-full object-cover object-center"
-  >
+  {% image piece.primaryImage, piece.title, "100vw", "eager", "w-full h-full object-cover object-center" %}
   <div class="scroll-hint-wrap" style="color: rgba(255,255,255,0.9);"
        onclick="document.querySelector('.piece-content').scrollIntoView({behavior:'smooth'})">
     <div class="scroll-hint">{% include "scroll-chevron.njk" %}</div>

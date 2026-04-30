@@ -18,13 +18,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
-  safelist: [
-    "min-h-[280px]",
-    "h-[50vw]",
-    "h-[56vw]",
-    "h-[35vw]",
-    "object-top",
-    "object-center"
-  ]
+  plugins: []
 };
