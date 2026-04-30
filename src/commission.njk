@@ -31,42 +31,27 @@ title: Commission
     {% endfor %}
   </div>
 
-  {# Form #}
-  <div class="border-t border-ash pt-16">
-    <h2 class="font-display text-3xl font-light text-charcoal mb-8">Get in touch</h2>
-
-    <form name="commission" method="POST" netlify class="space-y-6">
-      <input type="hidden" name="form-name" value="commission">
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label class="block font-ui text-xs tracking-widest uppercase text-ash mb-2">Name</label>
-          <input type="text" name="name" required
-                 class="w-full bg-paper border border-ash px-4 py-3 font-body text-charcoal focus:border-charcoal focus:outline-none transition-colors">
-        </div>
-        <div>
-          <label class="block font-ui text-xs tracking-widest uppercase text-ash mb-2">Email</label>
-          <input type="email" name="email" required
-                 class="w-full bg-paper border border-ash px-4 py-3 font-body text-charcoal focus:border-charcoal focus:outline-none transition-colors">
-        </div>
-      </div>
-
-      <div>
-        <label class="block font-ui text-xs tracking-widest uppercase text-ash mb-2">What do you have in mind?</label>
-        <textarea name="message" rows="6" required
-                  class="w-full bg-paper border border-ash px-4 py-3 font-body text-charcoal focus:border-charcoal focus:outline-none transition-colors resize-none"></textarea>
-      </div>
-
-      <div class="flex items-center justify-between">
-        <button type="submit"
-                class="font-ui text-xs tracking-widest uppercase bg-charcoal text-ground px-8 py-3 hover:bg-cedar transition-colors">
-          Send
-        </button>
-        <p class="font-ui text-xs text-ash">
-          Or email directly: <a href="mailto:{{ site.email }}" class="text-charcoal hover:text-cedar transition-colors">{{ site.email }}</a>
-        </p>
-      </div>
-    </form>
+  {# Contact #}
+  <div class="border-t border-ash pt-16"
+       x-data="{
+         get href() {
+           var u = 'eric';
+           var d = 'justwood' + String.fromCharCode(46) + 'design';
+           var s = 'Commission%20Inquiry';
+           return 'mailto:' + u + String.fromCharCode(64) + d + '?subject=' + s;
+         },
+         get label() {
+           return 'eric' + String.fromCharCode(64) + 'justwood' + String.fromCharCode(46) + 'design';
+         }
+       }">
+    <h2 class="font-display text-3xl font-light text-charcoal mb-4">Get in touch</h2>
+    <p class="font-body text-charcoal leading-relaxed mb-10 max-w-lg">
+      Send me an email describing what you have in mind — the space, the function,
+      the feeling you're after. No brief is too vague to start.
+    </p>
+    <a :href="href" x-text="label"
+       class="font-ui text-xs tracking-widest uppercase bg-charcoal text-ground px-8 py-3 hover:bg-cedar transition-colors">
+    </a>
   </div>
 
 </div>
