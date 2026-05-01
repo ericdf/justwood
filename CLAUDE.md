@@ -6,22 +6,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Portfolio/gallery site for Eric Friedman, a Berkeley woodworker specializing in Japanese joinery (kumiko), furniture, turned bowls, and lighting. Goal: curated atelier aesthetic to attract serious commission clients. Not a shop.
 
-Replacing the current Hugo Blox site at justwood.design.
+Live at justwood.design (replaced the previous Hugo Blox site).
 
 ## Technology Stack
 
 - **Eleventy (11ty)** — static site generator, Nunjucks templates
 - **Tailwind CSS** — via PostCSS
 - **Alpine.js** — CDN (no build step); used for category filter, mobile nav, lightbox
-- **Google Fonts** — Cormorant Garamond, Lora, Jost, Noto Serif JP
-- **Netlify** — hosting + form handling for commission inquiries
+- **Google Fonts** — Cormorant Garamond, Lora, Jost, Noto Serif JP (Noto conditional — only loaded on pieces with Japanese titles)
+- **Netlify** — hosting; auto-deploys on push to `main`
 
 ## Commands
 
-Once `package.json` is initialized:
-
 ```bash
-npm run dev      # Eleventy dev server with hot reload
+npm run dev      # Eleventy dev server + PostCSS watch (via concurrently)
 npm run build    # Production build → _site/
 ```
 
@@ -32,12 +30,22 @@ Tailwind is processed via PostCSS as part of the Eleventy build.
 **Data-driven pages:** `src/_data/pieces.json` drives everything. Individual piece pages are generated via Eleventy pagination — one page per piece at `/work/{slug}/`. The gallery, filters, and related-pieces logic all derive from this data file.
 
 **Key files:**
-- `.eleventy.js` — image optimization (`@11ty/eleventy-img`: widths 400/800/1200/1600px, formats avif/webp/jpeg), custom filters (`byCategory`, `featured`), passthrough for assets
+- `.eleventy.js` — image shortcodes (`image`, `imagePreload`; widths 400/800/1200/1600px, formats avif/webp/jpeg, output to `src/assets/images/optimised/`), custom filters (`byCategory`, `featured`, `getBySlug`), passthrough for assets
 - `src/_includes/base.njk` — global HTML shell, sticky nav, footer
+- `src/_includes/piece-card.njk` — gallery card partial
+- `src/_includes/category-nav.njk` — category filter nav partial
+- `src/_includes/image-lightbox.njk` — lightbox overlay partial
+- `src/_includes/scroll-chevron.njk` — scroll indicator partial
 - `src/_data/pieces.json` — all portfolio data (see data shape below)
+- `src/_data/bowls.json` — bowl subcategory data
 - `src/_data/site.json` — global metadata (title, description, url, etc.)
 - `src/index.njk` — home/gallery with masonry grid and category filter
 - `src/piece.njk` — individual piece template (paginated from pieces.json)
+- `src/about.njk` — about page
+- `src/commission.njk` — commission inquiry page (obfuscated mailto, not a form)
+- `src/404.njk` — custom 404 page
+- `src/bowls/` — bowl subcategory pages (`index.njk`, `carved.njk`, `found.njk`, `segmented.njk`)
+- `src/furniture.njk`, `src/lighting.njk`, `src/panels.njk`, `src/objects.njk` — category landing pages
 
 **Interactivity (Alpine.js):**
 - Category filter: `x-show` on gallery cards, no page reload
@@ -100,12 +108,17 @@ Tailwind is processed via PostCSS as part of the Eleventy build.
 ## Netlify
 
 - Build command: `npm run build`, publish dir: `_site`
-- Commission form uses Netlify Forms — no backend required, just `netlify` attribute on the `<form>` element
+- Commission page uses an obfuscated `mailto:` link — no form, no Netlify Forms
 - Redirect: `/work` → `/` (301)
 - Cache headers: 1 year immutable for `/assets/images/*`
 
+## Git / Deployment
+
+- Remote: `git@github.com:ericdf/justwood.git` (SSH — HTTPS push fails due to pack size)
+- Deployed to Netlify; pushes to `main` trigger auto-deploy
+
 ## Current Status
 
-**Specification phase.** `SPECIFICATION.md` is the authoritative design document — read it before implementing anything. No implementation files exist yet.
+**Implemented and deployed.** The site is live at justwood.design. `SPECIFICATION.md` contains the original design document for reference.
 
-Implementation order: `package.json` → config files → directory structure → Nunjucks templates → `pieces.json` data → CSS → test locally → deploy.
+Images are committed directly to `src/assets/images/` (one folder per piece). Optimised avif/webp/jpeg variants are generated at build time by `eleventy-img` into `src/assets/images/optimised/` and also committed so Netlify deploys are fast (no re-optimisation on CI).
