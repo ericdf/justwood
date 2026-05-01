@@ -10,8 +10,7 @@ module.exports = function (eleventyConfig) {
   // Passthrough — CSS is handled by PostCSS, not copied raw
   eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy({ "src/.nojekyll": ".nojekyll" });
-  // CNAME passthrough goes here when the custom domain is ready:
-  // eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
 
   // Filters
   eleventyConfig.addFilter("byCategory", (pieces, category) =>
