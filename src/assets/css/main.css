@@ -58,6 +58,11 @@ h2[id], section[id] {
   animation: hint-bob 1.4s ease-in-out infinite;
 }
 
+/* Hide scrollbar on image strip track */
+.strip-track::-webkit-scrollbar {
+  display: none;
+}
+
 /* Grain overlay — low-opacity SVG noise texture */
 body::before {
   content: "";

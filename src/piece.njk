@@ -93,19 +93,38 @@ needsJapanese: true
     next() { this.current = (this.current + 1) % this.images.length }
   }'
 >
-  {# Desktop: equal-height horizontal strip #}
-  <div class="hidden md:flex w-full" style="height: 420px;">
-    {# Hero thumbnail — index 0 #}
-    <button @click="open = true; current = 0" class="flex-1 overflow-hidden focus:outline-none group min-w-0">
-      {% image piece.primaryImage, piece.title, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" %}
-    </button>
-    {# Secondary thumbnails — index 1+ #}
-    {% for img in piece.images %}
-    {% set imgPos = (piece.imagesObjectPosition and piece.imagesObjectPosition[loop.index0]) or "center" %}
-    <button @click="open = true; current = {{ loop.index0 + 1 }}" class="flex-1 overflow-hidden focus:outline-none group min-w-0">
-      {% image img, piece.title + " — detail " + loop.index, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]", "object-position: " + imgPos %}
-    </button>
-    {% endfor %}
+  {# Desktop: scrollable image strip — shows ~3 cells, arrows + swipe to navigate #}
+  <div class="hidden md:block relative" style="height: 500px;">
+    {# Left arrow #}
+    <button
+      @click="$refs.stripTrack.scrollBy({ left: -$refs.stripTrack.offsetWidth / 3, behavior: 'smooth' })"
+      class="absolute left-0 top-0 bottom-0 z-10 px-4 flex items-center bg-gradient-to-r from-ground/70 to-transparent text-charcoal/60 hover:text-charcoal transition-colors focus:outline-none"
+      aria-label="Previous photos"
+      style="font-size: 2.5rem; line-height: 1;"
+    >‹</button>
+    {# Right arrow #}
+    <button
+      @click="$refs.stripTrack.scrollBy({ left: $refs.stripTrack.offsetWidth / 3, behavior: 'smooth' })"
+      class="absolute right-0 top-0 bottom-0 z-10 px-4 flex items-center bg-gradient-to-l from-ground/70 to-transparent text-charcoal/60 hover:text-charcoal transition-colors focus:outline-none"
+      aria-label="Next photos"
+      style="font-size: 2.5rem; line-height: 1;"
+    >›</button>
+    {# Scrollable track #}
+    <div
+      x-ref="stripTrack"
+      class="strip-track flex h-full overflow-x-auto gap-[10px]"
+      style="scroll-snap-type: x mandatory;"
+    >
+      <button @click="open = true; current = 0" class="relative flex-none overflow-hidden focus:outline-none group" style="width: 33.333%; height: 500px; scroll-snap-align: start;">
+        {% image piece.primaryImage, piece.title, "33vw", "lazy", "absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" %}
+      </button>
+      {% for img in piece.images %}
+      {% set imgPos = (piece.imagesObjectPosition and piece.imagesObjectPosition[loop.index0]) or "center" %}
+      <button @click="open = true; current = {{ loop.index0 + 1 }}" class="relative flex-none overflow-hidden focus:outline-none group" style="width: 33.333%; height: 500px; scroll-snap-align: start;">
+        {% image img, piece.title + " — detail " + loop.index, "33vw", "lazy", "absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]", "object-position: " + imgPos %}
+      </button>
+      {% endfor %}
+    </div>
   </div>
 
   {# Mobile: single-column stack #}
