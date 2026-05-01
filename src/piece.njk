@@ -189,8 +189,8 @@ needsJapanese: true
       {% if rel.slug != currentSlug %}
       <article class="group">
         <a href="{{ ('/work/' + rel.slug + '/') | url }}" class="block">
-          <div class="overflow-hidden bg-paper {% if rel.featured %}aspect-[4/3]{% else %}aspect-[3/4]{% endif %}">
-            {% image rel.primaryImage, rel.title, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" %}
+          <div class="overflow-hidden bg-paper flex items-center justify-center {% if rel.relatedCardOrientation == 'portrait' %}aspect-[3/4]{% else %}aspect-[4/3]{% endif %}">
+            {% image rel.primaryImage, rel.title, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.03]" %}
           </div>
           <div class="mt-2 px-1">
             <p class="font-ui text-[11px] tracking-widest uppercase text-charcoal/80 mb-1">{{ rel.category }}</p>
