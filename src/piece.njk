@@ -180,14 +180,30 @@ needsJapanese: true
 
 {# Related pieces #}
 {% set related = pieces | byCategory(piece.category) %}
+{% set currentSlug = piece.slug %}
 {% if related.length > 1 %}
 <div class="max-w-7xl mx-auto px-8 pb-20 mt-20 border-t border-ash pt-12">
   <h2 class="font-display text-2xl font-light text-charcoal mb-8">More {{ piece.category }}</h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     {% for rel in related %}
-      {% if rel.slug !== piece.slug %}
-      {% set piece = rel %}
-      {% include "piece-card.njk" %}
+      {% if rel.slug != currentSlug %}
+      <article class="group">
+        <a href="{{ ('/work/' + rel.slug + '/') | url }}" class="block">
+          <div class="overflow-hidden bg-paper {% if rel.featured %}aspect-[4/3]{% else %}aspect-[3/4]{% endif %}">
+            {% image rel.primaryImage, rel.title, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" %}
+          </div>
+          <div class="mt-2 px-1">
+            <p class="font-ui text-[11px] tracking-widest uppercase text-charcoal/80 mb-1">{{ rel.category }}</p>
+            <h3 class="font-display font-light leading-snug text-charcoal
+                       {% if rel.featured %}text-2xl md:text-3xl{% else %}text-xl md:text-2xl{% endif %}">
+              {{ rel.title }}
+              {% if rel.titleJapanese %}
+                <span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ rel.titleJapanese }}</span>
+              {% endif %}
+            </h3>
+          </div>
+        </a>
+      </article>
       {% endif %}
     {% endfor %}
   </div>

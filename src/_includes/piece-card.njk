@@ -1,19 +1,19 @@
 <article class="group">
-  <a href="{{ ('/work/' + piece.slug + '/') | url }}" class="block">
+  <a href="{{ ('/work/' + card.slug + '/') | url }}" class="block">
 
     {# Image #}
-    <div class="overflow-hidden bg-paper {% if piece.featured %}aspect-[4/3]{% else %}aspect-[3/4]{% endif %}">
-      {% image piece.primaryImage, piece.title, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" %}
+    <div class="overflow-hidden bg-paper {% if card.featured %}aspect-[4/3]{% else %}aspect-[3/4]{% endif %}">
+      {% image card.primaryImage, card.title, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" %}
     </div>
 
     {# Text #}
     <div class="mt-2 px-1">
-      <p class="font-ui text-[11px] tracking-widest uppercase text-charcoal/80 mb-1">{{ piece.category }}</p>
+      <p class="font-ui text-[11px] tracking-widest uppercase text-charcoal/80 mb-1">{{ card.category }}</p>
       <h3 class="font-display font-light leading-snug text-charcoal
-                 {% if piece.featured %}text-2xl md:text-3xl{% else %}text-xl md:text-2xl{% endif %}">
-        {{ piece.title }}
-        {% if piece.titleJapanese %}
-          <span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ piece.titleJapanese }}</span>
+                 {% if card.featured %}text-2xl md:text-3xl{% else %}text-xl md:text-2xl{% endif %}">
+        {{ card.title }}
+        {% if card.titleJapanese %}
+          <span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ card.titleJapanese }}</span>
         {% endif %}
       </h3>
     </div>
