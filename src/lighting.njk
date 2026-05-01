@@ -18,12 +18,12 @@ needsJapanese: true
     {% if piece.category == "lighting" %}
     <div class="group">
       {% if piece.orientation == "portrait" %}
-      <a href="{{ '/work/' + piece.slug + '/' | url }}" class="flex items-center justify-center"
+      <a href="{{ ('/work/' + piece.slug + '/') | url }}" class="flex items-center justify-center"
          style="background-color: #EDE8DF; height: max(280px, 49vw);">
         {% image piece.primaryImage, piece.title, "(min-width: 768px) 50vw, 100vw", "lazy", "max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       {% else %}
-      <a href="{{ '/work/' + piece.slug + '/' | url }}" class="block overflow-hidden"
+      <a href="{{ ('/work/' + piece.slug + '/') | url }}" class="block overflow-hidden"
          style="height: max(280px, 35vw);">
         {% image piece.primaryImage, piece.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>

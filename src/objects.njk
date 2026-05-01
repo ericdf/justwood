@@ -17,7 +17,7 @@ needsJapanese: true
   {% for piece in pieces %}
     {% if piece.category == "objects" %}
     <div class="group overflow-hidden">
-      <a href="{{ '/work/' + piece.slug + '/' | url }}" class="block" style="height: max(280px, 35vw);">
+      <a href="{{ ('/work/' + piece.slug + '/') | url }}" class="block" style="height: max(280px, 35vw);">
         {% image piece.primaryImage, piece.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
