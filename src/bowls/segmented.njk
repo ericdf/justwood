@@ -13,7 +13,7 @@ permalink: /bowls/segmented/
 
 <div class="max-w-7xl mx-auto px-8 pt-16 pb-12">
   <p class="font-ui text-sm tracking-widest uppercase text-charcoal/60 mb-3">
-    <a href="/" class="hover:text-charcoal transition-colors">Work</a> · <a href="/bowls/" class="hover:text-charcoal transition-colors">Bowls</a> · Segmented
+    <a href="{{ '/' | url }}" class="hover:text-charcoal transition-colors">Work</a> · <a href="{{ '/bowls/' | url }}" class="hover:text-charcoal transition-colors">Bowls</a> · Segmented
   </p>
   <h1 class="font-display text-4xl md:text-5xl font-light text-charcoal mb-8">Segmented Bowls</h1>
   <p class="font-body text-lg text-charcoal leading-relaxed max-w-2xl">
@@ -25,7 +25,7 @@ permalink: /bowls/segmented/
   x-data='{
     open: false,
     current: 0,
-    images: {{ images | dump | safe }},
+    images: [{% for img in images %}"{{ img | url }}"{% if not loop.last %},{% endif %}{% endfor %}],
     prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
     next() { this.current = (this.current + 1) % this.images.length }
   }'
@@ -81,7 +81,7 @@ permalink: /bowls/segmented/
   <p class="font-body text-ash max-w-lg mx-auto mb-10 leading-relaxed">
     Wood species, color arrangement, and scale are decided in conversation. Commission a segmented bowl means co-designing something that cannot be repeated.
   </p>
-  <a href="/commission/" class="font-ui text-xs tracking-widest uppercase text-ground border border-ash px-8 py-3 hover:bg-ground hover:text-blackwood transition-colors">
+  <a href="{{ '/commission/' | url }}" class="font-ui text-xs tracking-widest uppercase text-ground border border-ash px-8 py-3 hover:bg-ground hover:text-blackwood transition-colors">
     Begin a Conversation
   </a>
 </section>

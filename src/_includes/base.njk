@@ -17,7 +17,7 @@
   {% else %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap">
   {% endif %}
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
 </head>
 <body class="min-h-screen">
@@ -25,15 +25,15 @@
   {# Navigation #}
   <header x-data="{ open: false }" class="sticky top-0 z-50 bg-blackwood text-ground">
     <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="font-ui font-light tracking-widest uppercase text-sm text-ground hover:text-ash transition-colors">
+      <a href="{{ '/' | url }}" class="font-ui font-light tracking-widest uppercase text-sm text-ground hover:text-ash transition-colors">
         Justwood
       </a>
 
       {# Desktop nav #}
       <ul class="hidden md:flex gap-8 font-ui font-light tracking-wider text-sm uppercase">
-        <li><a href="/" class="text-ash hover:text-ground transition-colors">Work</a></li>
-        <li><a href="/about/" class="text-ash hover:text-ground transition-colors">About</a></li>
-        <li><a href="/commission/" class="text-ash hover:text-ground transition-colors">Commission</a></li>
+        <li><a href="{{ '/' | url }}" class="text-ash hover:text-ground transition-colors">Work</a></li>
+        <li><a href="{{ '/about/' | url }}" class="text-ash hover:text-ground transition-colors">About</a></li>
+        <li><a href="{{ '/commission/' | url }}" class="text-ash hover:text-ground transition-colors">Commission</a></li>
       </ul>
 
       {# Hamburger #}
@@ -50,9 +50,9 @@
     {# Mobile menu #}
     <div x-show="open" x-transition class="md:hidden border-t border-charcoal">
       <ul class="flex flex-col font-ui font-light tracking-wider text-sm uppercase">
-        <li><a href="/" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground border-b border-charcoal">Work</a></li>
-        <li><a href="/about/" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground border-b border-charcoal">About</a></li>
-        <li><a href="/commission/" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground">Commission</a></li>
+        <li><a href="{{ '/' | url }}" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground border-b border-charcoal">Work</a></li>
+        <li><a href="{{ '/about/' | url }}" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground border-b border-charcoal">About</a></li>
+        <li><a href="{{ '/commission/' | url }}" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground">Commission</a></li>
       </ul>
     </div>
   </header>
@@ -68,9 +68,9 @@
         <p class="font-ui text-xs tracking-wider text-ash mt-1">Berkeley, California</p>
       </div>
       <nav class="flex gap-8 font-ui text-xs tracking-wider uppercase text-ash">
-        <a href="/" class="hover:text-charcoal transition-colors">Work</a>
-        <a href="/about/" class="hover:text-charcoal transition-colors">About</a>
-        <a href="/commission/" class="hover:text-charcoal transition-colors">Commission</a>
+        <a href="{{ '/' | url }}" class="hover:text-charcoal transition-colors">Work</a>
+        <a href="{{ '/about/' | url }}" class="hover:text-charcoal transition-colors">About</a>
+        <a href="{{ '/commission/' | url }}" class="hover:text-charcoal transition-colors">Commission</a>
       </nav>
     </div>
   </footer>

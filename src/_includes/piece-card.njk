@@ -1,5 +1,5 @@
 <article class="group">
-  <a href="/work/{{ piece.slug }}/" class="block">
+  <a href="{{ '/work/' + piece.slug + '/' | url }}" class="block">
 
     {# Image #}
     <div class="overflow-hidden bg-paper {% if piece.featured %}aspect-[4/3]{% else %}aspect-[3/4]{% endif %}">

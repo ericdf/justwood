@@ -28,7 +28,7 @@ activeCat: bowls
   <div
     x-data='{
       open: false, current: 0,
-      images: {{ segImages | dump | safe }},
+      images: [{% for img in segImages %}"{{ img | url }}"{% if not loop.last %},{% endif %}{% endfor %}],
       prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
       next() { this.current = (this.current + 1) % this.images.length }
     }'
@@ -65,7 +65,7 @@ activeCat: bowls
     </div>
   </div>
 
-  <a href="/bowls/segmented/"
+  <a href="{{ '/bowls/segmented/' | url }}"
      class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
     See all Segmented Bowls →
   </a>
@@ -91,7 +91,7 @@ activeCat: bowls
   <div
     x-data='{
       open: false, current: 0,
-      images: {{ foundImages | dump | safe }},
+      images: [{% for img in foundImages %}"{{ img | url }}"{% if not loop.last %},{% endif %}{% endfor %}],
       prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
       next() { this.current = (this.current + 1) % this.images.length }
     }'
@@ -128,7 +128,7 @@ activeCat: bowls
     </div>
   </div>
 
-  <a href="/bowls/found/"
+  <a href="{{ '/bowls/found/' | url }}"
      class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
     See all Found Wood Bowls →
   </a>
@@ -149,7 +149,7 @@ activeCat: bowls
   <div
     x-data='{
       open: false, current: 0,
-      images: {{ carvedImages | dump | safe }},
+      images: [{% for img in carvedImages %}"{{ img | url }}"{% if not loop.last %},{% endif %}{% endfor %}],
       prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
       next() { this.current = (this.current + 1) % this.images.length }
     }'
@@ -186,7 +186,7 @@ activeCat: bowls
     </div>
   </div>
 
-  <a href="/bowls/carved/"
+  <a href="{{ '/bowls/carved/' | url }}"
      class="block text-center border border-charcoal text-charcoal font-ui text-sm tracking-widest uppercase py-4 hover:bg-charcoal hover:text-ground transition-colors">
     See all Carved Bowls →
   </a>

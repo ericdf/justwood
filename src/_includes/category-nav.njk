@@ -22,7 +22,7 @@
           <button type="button" data-scroll="{{ cat.id }}"
                   class="py-4 text-charcoal hover:text-cedar transition-colors bg-transparent border-0 cursor-pointer font-ui text-[11px] tracking-widest uppercase">{{ cat.name }}</button>
         {% else %}
-          <a href="{{ cat.url }}"
+          <a href="{{ cat.url | url }}"
              class="py-4 transition-colors {% if activeCat == cat.id %}text-charcoal font-medium{% else %}text-charcoal hover:text-cedar{% endif %}">{{ cat.name }}</a>
         {% endif %}
       {% endfor %}

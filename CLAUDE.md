@@ -122,3 +122,8 @@ Tailwind is processed via PostCSS as part of the Eleventy build.
 **Implemented and deployed.** The site is live at justwood.design. `SPECIFICATION.md` contains the original design document for reference.
 
 Images are committed directly to `src/assets/images/` (one folder per piece). Optimised avif/webp/jpeg variants are generated at build time by `eleventy-img` into `src/assets/images/optimised/` and also committed so Netlify deploys are fast (no re-optimisation on CI).
+
+## CNAME flip
+
+When you're ready to flip the CNAME: remove the PATH_PREFIX env line from the workflow, uncomment the     
+  CNAME passthrough in .eleventy.js, and point your DNS.

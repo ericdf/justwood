@@ -28,6 +28,8 @@ jobs:
       - run: npm ci
 
       - run: npm run build
+        env:
+          PATH_PREFIX: /justwood/
 
       - uses: actions/upload-pages-artifact@v3
         with:

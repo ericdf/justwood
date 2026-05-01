@@ -72,7 +72,7 @@ needsJapanese: true
         {% endif %}
         <div class="pt-5 border-t border-ash">
           <p class="text-[11px] tracking-widest uppercase text-charcoal/70 mb-3">Interested?</p>
-          <a href="/commission/"
+          <a href="{{ '/commission/' | url }}"
              class="block text-center border border-charcoal text-charcoal text-sm py-3 px-4 hover:bg-charcoal hover:text-ground transition-colors uppercase tracking-widest">
             Commission this piece
           </a>
@@ -89,7 +89,7 @@ needsJapanese: true
   x-data='{
     open: false,
     current: 0,
-    images: {{ piece.images | dump | safe }},
+    images: [{% for img in piece.images %}"{{ img | url }}"{% if not loop.last %},{% endif %}{% endfor %}],
     prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
     next() { this.current = (this.current + 1) % this.images.length }
   }'

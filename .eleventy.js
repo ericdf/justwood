@@ -1,11 +1,17 @@
 const Image = require("@11ty/eleventy-img");
 const path  = require("path");
 
+// Trailing slash stripped so we can safely write `${prefix}/foo/`.
+// Locally prefix is "" (serving at /); in GitHub Pages CI it is "/justwood".
+const prefix = (process.env.PATH_PREFIX || "/").replace(/\/$/, "");
+
 module.exports = function (eleventyConfig) {
 
   // Passthrough — CSS is handled by PostCSS, not copied raw
   eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy({ "src/.nojekyll": ".nojekyll" });
+  // CNAME passthrough goes here when the custom domain is ready:
+  // eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
 
   // Filters
   eleventyConfig.addFilter("byCategory", (pieces, category) =>
@@ -22,7 +28,7 @@ module.exports = function (eleventyConfig) {
     widths:    [400, 800, 1200, 1600],
     formats:   ["avif", "webp", "jpeg"],
     outputDir: "./src/assets/images/optimised/",
-    urlPath:   "/assets/images/optimised/",
+    urlPath:   `${prefix}/assets/images/optimised/`,
   };
 
   // Async shortcode for optimised images.
@@ -63,6 +69,7 @@ module.exports = function (eleventyConfig) {
   );
 
   return {
+    pathPrefix: process.env.PATH_PREFIX || "/",
     dir: {
       input:    "src",
       output:   "_site",
