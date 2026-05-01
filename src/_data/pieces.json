@@ -388,7 +388,8 @@
     "primaryImage": "/assets/images/hanukkiah/featured.jpeg",
     "images": [
       "/assets/images/hanukkiah/assembled.jpeg"
-    ]
+    ],
+    "imagesObjectPosition": ["50% 80%"]
   },
   {
     "title": "Cherry and Birdseye Maple Tansu",

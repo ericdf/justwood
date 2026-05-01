@@ -83,36 +83,38 @@ needsJapanese: true
   </div>
 </div>
 
-{# Secondary images — full viewport width, Alpine lightbox #}
-{% if piece.images and piece.images.length %}
+{# Image strip + lightbox — always present; hero (uncropped) is index 0, secondary images follow #}
 <div
   x-data='{
     open: false,
     current: 0,
-    images: [{% for img in piece.images %}"{{ img | url }}"{% if not loop.last %},{% endif %}{% endfor %}],
+    images: ["{{ piece.primaryImage | url }}"{% if piece.images and piece.images.length %}{% for img in piece.images %},"{{ img | url }}"{% endfor %}{% endif %}],
     prev() { this.current = (this.current - 1 + this.images.length) % this.images.length },
     next() { this.current = (this.current + 1) % this.images.length }
   }'
 >
   {# Desktop: equal-height horizontal strip #}
   <div class="hidden md:flex w-full" style="height: 420px;">
+    {# Hero thumbnail — index 0 #}
+    <button @click="open = true; current = 0" class="flex-1 overflow-hidden focus:outline-none group min-w-0">
+      {% image piece.primaryImage, piece.title, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" %}
+    </button>
+    {# Secondary thumbnails — index 1+ #}
     {% for img in piece.images %}
-    <button
-      @click="open = true; current = {{ loop.index0 }}"
-      class="flex-1 overflow-hidden focus:outline-none group min-w-0"
-    >
-      {% image img, piece.title + " — detail " + loop.index, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" %}
+    {% set imgPos = (piece.imagesObjectPosition and piece.imagesObjectPosition[loop.index0]) or "center" %}
+    <button @click="open = true; current = {{ loop.index0 + 1 }}" class="flex-1 overflow-hidden focus:outline-none group min-w-0">
+      {% image img, piece.title + " — detail " + loop.index, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]", "object-position: " + imgPos %}
     </button>
     {% endfor %}
   </div>
 
   {# Mobile: single-column stack #}
   <div class="md:hidden flex flex-col gap-1">
+    <button @click="open = true; current = 0" class="w-full focus:outline-none">
+      {% image piece.primaryImage, piece.title, "100vw", "lazy", "w-full h-auto" %}
+    </button>
     {% for img in piece.images %}
-    <button
-      @click="open = true; current = {{ loop.index0 }}"
-      class="w-full focus:outline-none"
-    >
+    <button @click="open = true; current = {{ loop.index0 + 1 }}" class="w-full focus:outline-none">
       {% image img, piece.title + " — detail " + loop.index, "100vw", "lazy", "w-full h-auto" %}
     </button>
     {% endfor %}
@@ -127,24 +129,25 @@ needsJapanese: true
     x-transition:leave="transition duration-150"
     x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0"
+    @click="open = false"
     @keydown.escape.window="open = false"
-    @keydown.arrow-left.window="prev()"
-    @keydown.arrow-right.window="next()"
+    @keydown.arrow-left.window="if (open) prev()"
+    @keydown.arrow-right.window="if (open) next()"
     class="fixed inset-0 flex items-center justify-center bg-blackwood/95"
-    style="z-index: 10000;"
+    style="display: none; z-index: 10000;"
   >
     <button
-      @click="open = false"
+      @click.stop="open = false"
       class="absolute top-6 right-6 font-ui text-sm tracking-widest uppercase text-ground/70 hover:text-ground"
     >✕ Close</button>
 
     <button
-      @click="prev()"
+      @click.stop="prev()"
       class="absolute left-4 md:left-10 text-ground/60 hover:text-ground font-light leading-none"
       style="font-size: 3rem;"
     >‹</button>
     <button
-      @click="next()"
+      @click.stop="next()"
       class="absolute right-4 md:right-10 text-ground/60 hover:text-ground font-light leading-none"
       style="font-size: 3rem;"
     >›</button>
@@ -153,8 +156,9 @@ needsJapanese: true
       <img
         x-show="current === i"
         :src="img"
-        :alt="'{{ piece.title }} — detail ' + (i + 1)"
+        :alt="'{{ piece.title }} — ' + (i === 0 ? 'hero' : 'detail ' + i)"
         class="max-h-[90vh] max-w-[90vw] object-contain"
+        @click.stop
       >
     </template>
 
@@ -164,7 +168,6 @@ needsJapanese: true
   </div>
 
 </div>
-{% endif %}
 
 {# Fade chevron when hero scrolls out of view #}
 <script>
