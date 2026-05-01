@@ -15,9 +15,9 @@ activeCat: furniture
 <div class="grid grid-cols-2 gap-[4px] mt-[4px]">
   {% for piece in pieces %}
     {% if piece.category == "furniture" %}
-    <div class="group overflow-hidden {% if piece.featured %}col-span-2{% endif %}">
+    <div class="group {% if piece.cardImageMode == "contain" %}{% else %}overflow-hidden {% endif %}{% if piece.featured %}col-span-2{% endif %}">
       <a href="{{ ('/work/' + piece.slug + '/') | url }}"
-         class="block"
+         class="block {% if piece.cardImageMode == "contain" %}overflow-hidden{% endif %}"
          style="height: max(280px, {% if piece.featured %}40vw{% else %}35vw{% endif %});">
         {% image piece.primaryImage, piece.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-full " + ("object-contain" if piece.cardImageMode == "contain" else "object-cover") + " transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>

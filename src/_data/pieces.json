@@ -63,6 +63,7 @@
     "category": "lighting",
     "featured": false,
     "orientation": "portrait",
+    "relatedCardOrientation": "portrait",
     "homeSection": "lighting",
     "homeLayout": "split",
     "date": "2024-02-19",
