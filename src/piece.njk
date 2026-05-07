@@ -6,14 +6,15 @@ pagination:
 permalink: /work/{{ piece.slug }}/
 layout: base.njk
 needsJapanese: true
+eleventyComputed:
+  title: "{{ piece.title }}"
+  excerpt: "{{ piece.excerpt }}"
+  primaryImage: "{{ piece.primaryImage }}"
 ---
-{% set title = piece.title %}
-{% set excerpt = piece.excerpt %}
-{% set primaryImage = piece.primaryImage %}
 
 {# Hero — portrait: solid warm bg, contained; standard: full-width cover #}
 {% if piece.orientation == 'portrait' %}
-<section class="piece-hero relative w-full h-[75vh] flex items-center justify-center" style="background-color: #EDE8DF;">
+<section class="piece-hero relative w-full h-[75vh] flex items-center justify-center bg-paper">
   {% image piece.primaryImage, piece.title, "100vw", "eager", "max-h-full w-auto object-contain" %}
   <div class="scroll-hint-wrap" style="color: var(--color-ash);"
        onclick="document.querySelector('.piece-content').scrollIntoView({behavior:'smooth'})">

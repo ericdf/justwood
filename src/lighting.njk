@@ -19,7 +19,7 @@ needsJapanese: true
     <div class="group">
       {% if piece.orientation == "portrait" %}
       <a href="{{ ('/work/' + piece.slug + '/') | url }}" class="flex items-center justify-center"
-         style="background-color: #EDE8DF; height: max(280px, 49vw);">
+         style="background-color: var(--color-paper); height: max(280px, 49vw);">
         {% image piece.primaryImage, piece.title, "(min-width: 768px) 50vw, 100vw", "lazy", "max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       {% else %}
