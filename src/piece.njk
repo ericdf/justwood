@@ -10,6 +10,7 @@ eleventyComputed:
   title: "{{ piece.title }}"
   excerpt: "{{ piece.excerpt }}"
   primaryImage: "{{ piece.primaryImage }}"
+  ogTitle: "{% if piece.shortTitle %}{{ piece.shortTitle }}{% else %}{{ piece.title }}{% endif %} — {{ site.title }}"
 ---
 
 {# Hero — portrait: solid warm bg, contained; standard: full-width cover #}

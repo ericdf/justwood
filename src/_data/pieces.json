@@ -1,6 +1,7 @@
 [
   {
     "title": "Cherry and Quilted Maple Credenza",
+    "shortTitle": "Credenza",
     "slug": "credenza",
     "category": "furniture",
     "featured": true,
@@ -83,6 +84,7 @@
   },
   {
     "title": "Quartersawn Redwood Parquet Table",
+    "shortTitle": "Parquet Table",
     "slug": "parquet-table",
     "category": "furniture",
     "featured": true,
@@ -393,6 +395,7 @@
   },
   {
     "title": "Cherry and Birdseye Maple Tansu",
+    "shortTitle": "Tansu",
     "titleJapanese": "箪笥",
     "slug": "tansu",
     "category": "furniture",
