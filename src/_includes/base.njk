@@ -11,6 +11,14 @@
   <meta property="og:title" content="{{ ogTitle if ogTitle else ((title + ' — ' + site.title) if title else site.title) }}">
   <meta property="og:description" content="{{ site.tagline }}{% if excerpt %} · {{ excerpt }}{% endif %}">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ ogTitle if ogTitle else ((title + ' — ' + site.title) if title else site.title) }}">
+  <meta name="twitter:description" content="{{ site.tagline }}{% if excerpt %} · {{ excerpt }}{% endif %}">
+  {% if primaryImage %}<meta name="twitter:image" content="{{ site.url }}{{ primaryImage }}">{% endif %}
   {% if preloadImage %}{% imagePreload preloadImage, "100vw" %}{% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +29,7 @@
   {% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":{{ site.title | dump | safe }},"url":{{ site.url | dump | safe }},"description":{{ site.tagline | dump | safe }},"address":{"@type":"PostalAddress","addressLocality":"Berkeley","addressRegion":"CA","addressCountry":"US"}}</script>
 </head>
 <body class="min-h-screen">
 
@@ -28,7 +37,7 @@
   <header x-data="{ open: false }" class="sticky top-0 z-50 bg-blackwood text-ground">
     <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="{{ '/' | url }}" class="font-ui font-light tracking-widest uppercase text-sm text-ground hover:text-ash transition-colors">
-        Justwood
+        {{ site.title }}
       </a>
 
       {# Desktop nav #}
@@ -66,7 +75,7 @@
   <footer class="border-t border-ash">
     <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start gap-6">
       <div>
-        <p class="font-display text-2xl font-light text-charcoal">Justwood</p>
+        <p class="font-display text-2xl font-light text-charcoal">{{ site.title }}</p>
         <p class="font-ui text-xs tracking-wider text-charcoal/80 mt-1">Berkeley, California</p>
       </div>
       <nav class="flex gap-8 font-ui text-xs tracking-wider uppercase text-charcoal/80">

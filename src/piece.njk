@@ -233,3 +233,19 @@ eleventyComputed:
   </div>
 </div>
 {% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": {{ piece.title | dump | safe }},
+  "description": {{ piece.excerpt | dump | safe }},
+  "image": {{ (site.url + piece.primaryImage) | dump | safe }},
+  "creator": {
+    "@type": "Person",
+    "name": {{ site.author | dump | safe }}
+  }{% if piece.materials %},
+  "material": {{ piece.materials | dump | safe }}{% endif %}{% if piece.date %},
+  "dateCreated": {{ piece.date | dump | safe }}{% endif %}
+}
+</script>
