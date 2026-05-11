@@ -52,15 +52,22 @@ module.exports = function (eleventyConfig) {
   // loading: "lazy" (default) or "eager" — eager also adds fetchpriority="high"
   // cls: CSS classes forwarded to the <img> element
   // style: inline styles forwarded to the <img> element
+  const LAYOUT_SIZES = {
+    "hero":   "100vw",
+    "grid-2": "(min-width: 1280px) 640px, (min-width: 768px) 50vw, 100vw",
+    "grid-3": "(min-width: 1280px) 420px, (min-width: 768px) 33vw, 100vw",
+  };
+
   eleventyConfig.addAsyncShortcode(
     "image",
     async function (src, alt, sizes = "100vw", loading = "lazy", cls = "", style = "") {
       const srcStripped = src.startsWith("/") ? src.slice(1) : src;
       const fullSrc = path.join("src", srcStripped);
       const metadata = await Image(fullSrc, imageOptions);
+      const resolvedSizes = LAYOUT_SIZES[sizes] ?? sizes;
       const attrs = {
         alt,
-        sizes,
+        sizes: resolvedSizes,
         loading,
         decoding: "async",
         ...(loading === "eager" ? { fetchpriority: "high" } : {}),

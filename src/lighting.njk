@@ -21,18 +21,18 @@ primaryImage: /assets/images/igeta-lantern/featured.jpeg
       {% if piece.orientation == "portrait" %}
       <a href="{{ ('/work/' + piece.slug + '/') | url }}" class="flex items-center justify-center"
          style="background-color: var(--color-paper); height: max(280px, 49vw);">
-        {% image piece.primaryImage, piece.title, "50vw", "lazy", "max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
+        {% image piece.primaryImage, piece.title, "grid-2", "lazy", "max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       {% else %}
       <a href="{{ ('/work/' + piece.slug + '/') | url }}" class="block overflow-hidden"
          style="height: max(280px, 35vw);">
-        {% image piece.primaryImage, piece.title, "50vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
+        {% image piece.primaryImage, piece.title, "grid-2", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       {% endif %}
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">
           {{ piece.title }}
-          {% if piece.titleJapanese %}<span class="text-charcoal/70" style="font-family: serif;">{{ piece.titleJapanese }}</span>{% endif %}
+          {% if piece.titleJapanese %}<span class="text-charcoal/80" style="font-family: serif;">{{ piece.titleJapanese }}</span>{% endif %}
         </h3>
       </div>
     </div>
