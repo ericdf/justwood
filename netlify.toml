@@ -2,11 +2,6 @@
   command     = "npm run build"
   publish     = "_site"
 
-[[redirects]]
-  from   = "/work"
-  to     = "/"
-  status = 301
-
 [[headers]]
   for = "/assets/images/*"
   [headers.values]

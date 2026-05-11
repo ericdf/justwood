@@ -14,7 +14,7 @@ Live at justwood.design (replaced the previous Hugo Blox site).
 - **Tailwind CSS** — via PostCSS
 - **Alpine.js** — CDN (no build step); used for category filter, mobile nav, lightbox
 - **Google Fonts** — Cormorant Garamond, Lora, Jost, Noto Serif JP (Noto conditional — only loaded on pieces with Japanese titles)
-- **Netlify** — hosting; auto-deploys on push to `main`
+- **GitHub Pages** — hosting; `.github/workflows/deploy.yml` auto-deploys on push to `main`
 
 ## Commands
 
@@ -105,25 +105,21 @@ Tailwind is processed via PostCSS as part of the Eleventy build.
 
 `status` values: `commission` (portfolio only, made to order), `available` (this piece can be purchased), `sold` (portfolio only).
 
-## Netlify
+## GitHub Pages
 
-- Build command: `npm run build`, publish dir: `_site`
-- Commission page uses an obfuscated `mailto:` link — no form, no Netlify Forms
-- Redirect: `/work` → `/` (301)
-- Cache headers: 1 year immutable for `/assets/images/*`
+- Build: GitHub Actions workflow (`.github/workflows/deploy.yml`) runs `npm run build`, publishes `_site`
+- Custom domain: `justwood.design` via `src/CNAME` (passed through by Eleventy)
+- Commission page uses an obfuscated `mailto:` link — no form
+- GitHub Pages does NOT support server-side redirects; use `<meta http-equiv="refresh">` pages instead
+- `netlify.toml` exists in the repo but is ignored — GitHub Pages does not read it
 
 ## Git / Deployment
 
 - Remote: `git@github.com:ericdf/justwood.git` (SSH — HTTPS push fails due to pack size)
-- Deployed to Netlify; pushes to `main` trigger auto-deploy
+- Deployed to GitHub Pages; pushes to `main` trigger auto-deploy via Actions
 
 ## Current Status
 
 **Implemented and deployed.** The site is live at justwood.design. `SPECIFICATION.md` contains the original design document for reference.
 
-Images are committed directly to `src/assets/images/` (one folder per piece). Optimised avif/webp/jpeg variants are generated at build time by `eleventy-img` into `src/assets/images/optimised/` and also committed so Netlify deploys are fast (no re-optimisation on CI).
-
-## CNAME flip
-
-When you're ready to flip the CNAME: remove the PATH_PREFIX env line from the workflow, uncomment the     
-  CNAME passthrough in .eleventy.js, and point your DNS.
+Images are committed directly to `src/assets/images/` (one folder per piece). Optimised avif/webp/jpeg variants are generated at build time by `eleventy-img` into `src/assets/images/optimised/` and also committed so GitHub Actions deploys are fast (no re-optimisation on CI).
