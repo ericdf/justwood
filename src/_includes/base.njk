@@ -20,17 +20,7 @@
   <meta name="twitter:description" content="{{ site.tagline }}{% if excerpt %} · {{ excerpt }}{% endif %}">
   {% if primaryImage %}<meta name="twitter:image" content="{{ site.url }}{{ primaryImage }}">{% endif %}
   {% if preloadImage %}{% imagePreload preloadImage, "100vw" %}{% endif %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  {% if needsJapanese %}
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap"></noscript>
-  {% else %}
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&display=swap"></noscript>
-  {% endif %}
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/lora-400-500-normal.woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":{{ site.title | dump | safe }},"url":{{ site.url | dump | safe }},"description":{{ site.tagline | dump | safe }},"address":{"@type":"PostalAddress","addressLocality":"Berkeley","addressRegion":"CA","addressCountry":"US"}}</script>

@@ -4,7 +4,6 @@ title: false
 preloadImage: "assets/images/credenza/featured.jpeg"
 primaryImage: /assets/images/credenza/featured.jpeg
 ogTitle: "Just Wood: Made by hand. Built to last."
-needsJapanese: true
 ---
 
 {# Hero — credenza #}
@@ -46,7 +45,7 @@ needsJapanese: true
 
     <div class="col-span-2 group overflow-hidden">
       <a href="{{ '/work/parquet-table/' | url }}" class="block" style="height: max(280px, 40vw);">
-        {% image table.primaryImage, table.title, "100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
+        {% image table.primaryImage, table.title, "100vw", "eager", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-2xl font-light text-charcoal">{{ table.title }}</h3>
@@ -75,12 +74,12 @@ needsJapanese: true
     <div class="group">
       <a href="{{ '/work/igeta-lantern/' | url }}" class="flex items-center justify-center"
          style="background-color: var(--color-paper); height: max(280px, 49vw);">
-        {% image igeta.primaryImage, igeta.title, "(min-width: 768px) 50vw, 100vw", "lazy", "max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
+        {% image igeta.primaryImage, igeta.title, "50vw", "lazy", "max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">
           {{ igeta.title }}
-          {% if igeta.titleJapanese %}<span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ igeta.titleJapanese }}</span>{% endif %}
+          {% if igeta.titleJapanese %}<span class="text-ash" style="font-family: serif;">{{ igeta.titleJapanese }}</span>{% endif %}
         </h3>
       </div>
     </div>
@@ -88,7 +87,7 @@ needsJapanese: true
     <div class="group">
       <a href="{{ '/work/water-drop-lantern/' | url }}" class="flex items-center justify-center"
          style="background-color: var(--color-paper); height: max(280px, 49vw);">
-        {% image waterdrop.primaryImage, waterdrop.title, "(min-width: 768px) 50vw, 100vw", "lazy", "max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
+        {% image waterdrop.primaryImage, waterdrop.title, "50vw", "lazy", "max-h-full w-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">{{ waterdrop.title }}</h3>
@@ -117,24 +116,24 @@ needsJapanese: true
 
     <div class="group overflow-hidden">
       <a href="{{ '/work/kurotake-panel/' | url }}" class="block">
-        {% image kurotake.primaryImage, kurotake.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]" %}
+        {% image kurotake.primaryImage, kurotake.title, "50vw", "lazy", "w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">
           {{ kurotake.title }}
-          {% if kurotake.titleJapanese %}<span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ kurotake.titleJapanese }}</span>{% endif %}
+          {% if kurotake.titleJapanese %}<span class="text-ash" style="font-family: serif;">{{ kurotake.titleJapanese }}</span>{% endif %}
         </h3>
       </div>
     </div>
 
     <div class="group overflow-hidden">
       <a href="{{ '/work/kumiko-panel/' | url }}" class="block">
-        {% image sakura.primaryImage, sakura.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]" %}
+        {% image sakura.primaryImage, sakura.title, "50vw", "lazy", "w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">
           {{ sakura.title }}
-          {% if sakura.titleJapanese %}<span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ sakura.titleJapanese }}</span>{% endif %}
+          {% if sakura.titleJapanese %}<span class="text-ash" style="font-family: serif;">{{ sakura.titleJapanese }}</span>{% endif %}
         </h3>
       </div>
     </div>
@@ -160,7 +159,7 @@ needsJapanese: true
       {% if card.subcategory == "segmented" %}
       <div class="group overflow-hidden">
         <a href="{{ '/bowls/segmented/' | url }}" class="block bg-paper" style="height: max(280px, 35vw);">
-          {% image card.image, "Segmented bowl", "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-full " + ("object-contain" if card.fit == "contain" else "object-cover") + " transition-transform duration-700 group-hover:scale-[1.02]" %}
+          {% image card.image, "Segmented bowl", "50vw", "lazy", "w-full h-full " + ("object-contain" if card.fit == "contain" else "object-cover") + " transition-transform duration-700 group-hover:scale-[1.02]" %}
         </a>
       </div>
       {% endif %}
@@ -177,7 +176,7 @@ needsJapanese: true
       {% if card.subcategory == "found" %}
       <div class="group overflow-hidden">
         <a href="{{ '/bowls/found/' | url }}" class="block bg-paper" style="height: max(280px, 35vw);">
-          {% image card.image, "Found wood bowl", "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-full " + ("object-contain" if card.fit == "contain" else "object-cover") + " transition-transform duration-700 group-hover:scale-[1.02]" %}
+          {% image card.image, "Found wood bowl", "50vw", "lazy", "w-full h-full " + ("object-contain" if card.fit == "contain" else "object-cover") + " transition-transform duration-700 group-hover:scale-[1.02]" %}
         </a>
       </div>
       {% endif %}
@@ -223,19 +222,19 @@ needsJapanese: true
     <div class="group overflow-hidden">
       <a href="{{ '/work/tokyo-bracket/' | url }}" class="flex items-center justify-center bg-paper"
          style="height: max(280px, 35vw);">
-        {% image tokyo.primaryImage, tokyo.title, "(min-width: 768px) 50vw, 100vw", "lazy", "max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
+        {% image tokyo.primaryImage, tokyo.title, "50vw", "lazy", "max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">
           {{ tokyo.title }}
-          {% if tokyo.titleJapanese %}<span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ tokyo.titleJapanese }}</span>{% endif %}
+          {% if tokyo.titleJapanese %}<span class="text-ash" style="font-family: serif;">{{ tokyo.titleJapanese }}</span>{% endif %}
         </h3>
       </div>
     </div>
 
     <div class="group overflow-hidden">
       <a href="{{ '/work/hanukkiah/' | url }}" class="block" style="height: max(280px, 35vw);">
-        {% image hanukk.primaryImage, hanukk.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
+        {% image hanukk.primaryImage, hanukk.title, "50vw", "lazy", "w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">{{ hanukk.title }}</h3>

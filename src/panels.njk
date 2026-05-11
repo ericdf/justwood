@@ -3,7 +3,6 @@ layout: base.njk
 title: Panels
 permalink: /panels/
 activeCat: panels
-needsJapanese: true
 ogTitle: Just Wood Panels
 primaryImage: /assets/images/kurotake-panel/featured.jpg
 ---
@@ -20,12 +19,12 @@ primaryImage: /assets/images/kurotake-panel/featured.jpg
     {% if piece.category == "panels" %}
     <div class="group overflow-hidden">
       <a href="{{ ('/work/' + piece.slug + '/') | url }}" class="block">
-        {% image piece.primaryImage, piece.title, "(min-width: 768px) 50vw, 100vw", "lazy", "w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]" %}
+        {% image piece.primaryImage, piece.title, "50vw", "lazy", "w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]" %}
       </a>
       <div class="mt-2 px-3 pb-5">
         <h3 class="font-display text-xl font-light text-charcoal">
           {{ piece.title }}
-          {% if piece.titleJapanese %}<span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ piece.titleJapanese }}</span>{% endif %}
+          {% if piece.titleJapanese %}<span class="text-ash" style="font-family: serif;">{{ piece.titleJapanese }}</span>{% endif %}
         </h3>
       </div>
     </div>

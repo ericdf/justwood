@@ -24,6 +24,7 @@ module.exports = function (eleventyConfig) {
   }
 
   // Passthrough — CSS is handled by PostCSS, not copied raw
+  eleventyConfig.addPassthroughCopy("src/assets/fonts");
   eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy({ "src/.nojekyll": ".nojekyll" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });

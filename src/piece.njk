@@ -5,7 +5,6 @@ pagination:
   alias: piece
 permalink: /work/{{ piece.slug }}/
 layout: base.njk
-needsJapanese: true
 eleventyComputed:
   title: "{{ piece.title }}"
   excerpt: "{{ piece.excerpt }}"
@@ -40,7 +39,7 @@ eleventyComputed:
       <h1 class="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight mb-1">
         {{ piece.title }}
         {% if piece.titleJapanese %}
-          <span style="font-family: 'Noto Serif JP', serif;" class="font-light text-charcoal/60">{{ piece.titleJapanese }}</span>
+          <span style="font-family: serif;" class="font-light text-charcoal/60">{{ piece.titleJapanese }}</span>
         {% endif %}
       </h1>
       <p class="font-ui text-sm tracking-widest uppercase text-charcoal/60 mb-8 border-b border-ash pb-6">{{ piece.category }}</p>
@@ -214,7 +213,7 @@ eleventyComputed:
       <article class="group">
         <a href="{{ ('/work/' + rel.slug + '/') | url }}" class="block">
           <div class="overflow-hidden bg-paper flex items-center justify-center {% if rel.relatedCardOrientation == 'portrait' %}aspect-[3/4]{% else %}aspect-[4/3]{% endif %}">
-            {% image rel.primaryImage, rel.title, "(min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.03]" %}
+            {% image rel.primaryImage, rel.title, "(min-width: 1280px) 400px, (min-width: 768px) 33vw, 100vw", "lazy", "w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.03]" %}
           </div>
           <div class="mt-2 px-1">
             <p class="font-ui text-[11px] tracking-widest uppercase text-charcoal/80 mb-1">{{ rel.category }}</p>
@@ -222,7 +221,7 @@ eleventyComputed:
                        {% if rel.featured %}text-2xl md:text-3xl{% else %}text-xl md:text-2xl{% endif %}">
               {{ rel.title }}
               {% if rel.titleJapanese %}
-                <span class="text-ash" style="font-family: 'Noto Serif JP', serif;">{{ rel.titleJapanese }}</span>
+                <span class="text-ash" style="font-family: serif;">{{ rel.titleJapanese }}</span>
               {% endif %}
             </h3>
           </div>
