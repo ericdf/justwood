@@ -1,11 +1,27 @@
 const Image = require("@11ty/eleventy-img");
 const path  = require("path");
+const fs    = require("fs");
 
 // Trailing slash stripped so we can safely write `${prefix}/foo/`.
 // Locally prefix is "" (serving at /); in GitHub Pages CI it is "/justwood".
 const prefix = (process.env.PATH_PREFIX || "/").replace(/\/$/, "");
 
 module.exports = function (eleventyConfig) {
+
+  // In production, inline the compiled CSS so there's no render-blocking stylesheet request.
+  // PostCSS runs before Eleventy in the build script, so the file exists by the time this transform fires.
+  if (process.env.NODE_ENV === "production") {
+    eleventyConfig.addTransform("inlineCss", function (content) {
+      if (!this.outputPath || !this.outputPath.endsWith(".html")) return content;
+      const cssPath = path.join("_site", "assets", "css", "main.css");
+      if (!fs.existsSync(cssPath)) return content;
+      const css = fs.readFileSync(cssPath, "utf8");
+      return content.replace(
+        /<link rel="stylesheet" href="[^"]*main\.css[^"]*">/,
+        `<style>${css}</style>`
+      );
+    });
+  }
 
   // Passthrough — CSS is handled by PostCSS, not copied raw
   eleventyConfig.addPassthroughCopy("src/assets/images");

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"npx @11ty/eleventy --serve\" \"postcss src/assets/css/main.css -o _site/assets/css/main.css --watch\"",
-    "build": "NODE_ENV=production postcss src/assets/css/main.css -o _site/assets/css/main.css && npx @11ty/eleventy",
+    "build": "NODE_ENV=production sh -c 'postcss src/assets/css/main.css -o _site/assets/css/main.css && npx @11ty/eleventy'",
     "build:css": "postcss src/assets/css/main.css -o _site/assets/css/main.css",
     "build:eleventy": "npx @11ty/eleventy"
   },
