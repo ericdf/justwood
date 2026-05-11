@@ -111,7 +111,6 @@ Tailwind is processed via PostCSS as part of the Eleventy build.
 - Custom domain: `justwood.design` via `src/CNAME` (passed through by Eleventy)
 - Commission page uses an obfuscated `mailto:` link — no form
 - GitHub Pages does NOT support server-side redirects; use `<meta http-equiv="refresh">` pages instead
-- `netlify.toml` exists in the repo but is ignored — GitHub Pages does not read it
 
 ## Git / Deployment
 
