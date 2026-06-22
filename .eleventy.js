@@ -28,6 +28,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy({ "src/.nojekyll": ".nojekyll" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  // Bowl Designer app — pre-built Vite bundle deployed via make web_deploy
+  eleventyConfig.addPassthroughCopy({ "src/bowl_designer": "bowl_designer" });
 
   // Filters
   eleventyConfig.addFilter("byCategory", (pieces, category) =>
