@@ -39,6 +39,7 @@
         <li><a href="{{ '/' | url }}" class="text-ash hover:text-ground transition-colors">Work</a></li>
         <li><a href="{{ '/about/' | url }}" class="text-ash hover:text-ground transition-colors">About</a></li>
         <li><a href="{{ '/commission/' | url }}" class="text-ash hover:text-ground transition-colors">Commission</a></li>
+        <li><a href="{{ '/tools/' | url }}" class="text-ash hover:text-ground transition-colors">Tools</a></li>
       </ul>
 
       {# Hamburger #}
@@ -57,7 +58,8 @@
       <ul class="flex flex-col font-ui font-light tracking-wider text-sm uppercase">
         <li><a href="{{ '/' | url }}" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground border-b border-charcoal">Work</a></li>
         <li><a href="{{ '/about/' | url }}" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground border-b border-charcoal">About</a></li>
-        <li><a href="{{ '/commission/' | url }}" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground">Commission</a></li>
+        <li><a href="{{ '/commission/' | url }}" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground border-b border-charcoal">Commission</a></li>
+        <li><a href="{{ '/tools/' | url }}" @click="open=false" class="block px-6 py-4 text-ash hover:text-ground">Tools</a></li>
       </ul>
     </div>
   </header>
@@ -76,6 +78,7 @@
         <a href="{{ '/' | url }}" class="hover:text-charcoal transition-colors">Work</a>
         <a href="{{ '/about/' | url }}" class="hover:text-charcoal transition-colors">About</a>
         <a href="{{ '/commission/' | url }}" class="hover:text-charcoal transition-colors">Commission</a>
+        <a href="{{ '/tools/' | url }}" class="hover:text-charcoal transition-colors">Tools</a>
       </nav>
     </div>
   </footer>
