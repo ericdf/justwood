@@ -29,6 +29,23 @@ jobs:
 
       - run: npm run build
 
+      - name: Checkout BowlDesigner
+        uses: actions/checkout@v4
+        with:
+          repository: ericdf/BowlDesigner
+          path: BowlDesigner
+
+      - name: Build Bowl Designer web app
+        working-directory: BowlDesigner/web
+        run: |
+          npm ci
+          npm run build
+
+      - name: Copy Bowl Designer into site
+        run: |
+          rm -rf _site/bowl_designer
+          cp -r BowlDesigner/web/dist _site/bowl_designer
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
