@@ -34,6 +34,7 @@ jobs:
         with:
           repository: ericdf/BowlDesigner
           path: BowlDesigner
+          token: ${{ secrets.BOWLDESIGNER_TOKEN }}
 
       - name: Build Bowl Designer web app
         working-directory: BowlDesigner/web
