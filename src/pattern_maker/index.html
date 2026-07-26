@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carver's Pattern Maker</title>
+    <meta
+      name="description"
+      content="Turn a photograph of a carvable object into a printable, true-scale carving pattern. Everything happens on your device."
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="256x256" href="./icon-256.png" />
+    <link rel="apple-touch-icon" href="./icon-256.png" />
+    <meta name="theme-color" content="#F7F3EE" />
+    <script type="module" crossorigin src="./assets/index-BKN5ZLTM.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CEuEXA6Y.css">
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <div class="brand">
+          <div class="brand-mark">
+            <!--
+              WebP with a PNG fallback: the mark is a photograph of a spoon, so
+              it compresses to a twentieth of the size with no visible loss. The
+              favicons stay PNG — there is nothing to save on 1.8KB, and some
+              readers and bookmark tools still handle WebP poorly.
+            -->
+            <picture>
+              <source srcset="./icon-256.webp" type="image/webp" />
+              <img class="app-mark" src="./icon-256.png" alt="" width="96" height="96" />
+            </picture>
+            <p class="eyebrow">Just Wood</p>
+          </div>
+          <h1>Carver's Pattern Maker</h1>
+        </div>
+        <p>
+          Three steps: <strong>choose a photograph</strong> of your object and the
+          shape is traced for you, <strong>re-arrange</strong> the pattern if you
+          want to, then <strong>print</strong> it at whatever size you like.
+        </p>
+        <p>
+          Add more views — a top and a side, say. They scale together and share
+          registration marks, so they line up easily on the blank.
+        </p>
+        <p>
+          A fourth, optional step — and the best one:
+          <a href="#tip-jar" id="tip-link">chip in</a> if Carver's Pattern Maker turns
+          out to be useful.
+        </p>
+        <h2 class="privacy-heading">Privacy, by design</h2>
+        <div class="privacy">
+          <p>
+            <strong>Your photographs and your pattern never leave this device.</strong> Nothing
+            is uploaded. No cookies, no trackers, no accounts.
+          </p>
+          <p>
+            Work in progress is held in your browser so a reload does not lose it, and
+            "Start over" clears it — but save the PDF; it's what you came for.
+          </p>
+          <p>
+            We can see how many people visit, like any website, but nothing about who you
+            are or what you made. If you decide to tip, that happens on Stripe's own
+            site under their privacy policy — nothing here is loaded from them until
+            you go.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Acquire ---------------------------------------------------- -->
+      <section id="acquire-section">
+        <h2><span class="step">1</span> Start with a photograph</h2>
+        <p>
+          Choose a photograph, then <strong>tap/click the object</strong>. Often that is
+          enough. If part is missing — a spoon's handle is the usual one —
+          <strong>drag across what it left out</strong> and it will be added.
+        </p>
+        <div class="row">
+          <label class="file-picker" for="file-input">
+            <span class="file-picker-label">Choose a photograph</span>
+            <input id="file-input" type="file" accept="image/*" />
+          </label>
+          <span class="status" id="file-name"></span>
+        </div>
+        <p id="status" class="status instruction" role="status"></p>
+        <p id="error" class="error" role="alert" hidden></p>
+
+        <div id="acquisition" hidden>
+        <div id="stage" class="stage" hidden>
+          <img id="source-image" alt="Your photograph. Tap/click the object to select it." />
+          <canvas id="overlay-canvas" class="overlay"></canvas>
+        </div>
+
+        <div id="tools" class="row acquisition-tool" hidden>
+          <button id="erase-toggle" type="button">Start erasing</button>
+          <label for="brush" id="brush-label">Eraser size</label>
+          <input id="brush" type="range" min="0.005" max="0.08" step="0.005" value="0.02" />
+          <button id="keep-largest" type="button">Remove specks</button>
+          <button id="undo-erase" type="button" disabled>Undo</button>
+          <button id="reset-mask" type="button" disabled>Reset tracing</button>
+        </div>
+
+        <aside class="hint">
+          <p class="hint-label">Good to know</p>
+          <p>
+            Stray shading away from the object is ignored — only the largest connected
+            area becomes the pattern. Shading <em>joined</em> to the object does print, so
+            erase that if you care to. Tidy it as much or as little as you like.
+          </p>
+        </aside>
+
+        <div id="commit-row" class="row acquisition-tool" hidden>
+          <button id="commit-outline" type="button" class="primary">Trace this shape</button>
+        </div>
+
+        </div>
+
+        <div class="row" id="reacquire-row" hidden>
+          <span class="status">Working on the pattern.</span>
+          <button id="reacquire" type="button" class="quiet">Show photo again</button>
+        </div>
+
+      </section>
+
+      <!-- Lay out ---------------------------------------------------- -->
+      <section id="layout-section">
+        <h2 id="layout-heading"><span class="step">2</span> Lay out the pattern</h2>
+        <p id="layout-hint" hidden>
+          <strong>Set the length</strong> — any size you like, from a teaspoon to an oar.
+          <strong>Guides</strong> and <strong>layout lines</strong> annotate;
+          <strong>make symmetrical</strong> reshapes the pattern.
+        </p>
+        <div id="size-row" class="row" hidden>
+          <label for="target-length">Length</label>
+          <input id="target-length" type="range" min="25" max="760" step="1" value="152" />
+          <input id="target-length-text" type="text" class="mono" size="10" value="6&quot;" />
+          <label for="format">Units</label>
+          <select id="format">
+            <option value="fractional">Inches — fractional</option>
+            <option value="decimal">Inches — decimal</option>
+            <option value="millimeters">Millimeters</option>
+          </select>
+          <select id="precision">
+            <option value="2">1/2</option>
+            <option value="4">1/4</option>
+            <option value="8">1/8</option>
+            <option value="16" selected>1/16</option>
+          </select>
+          <button id="size-help" type="button" class="hint-button" aria-expanded="false">
+            What's this?
+          </button>
+        </div>
+
+        <p class="explainer" id="size-explainer" hidden>
+          The longest dimension your finished carving should be. Everything scales
+          proportionally — width follows length and the shape is never stretched, so a
+          6&quot; spoon and a 12&quot; spoon are the same design at two sizes. Change it
+          whenever you like and the pattern below redraws; the printed page is always
+          true to your chosen measurement. One size applies to every pattern in the set, so they
+          line up with each other on the blank.
+        </p>
+
+        <div id="symmetry-row" hidden>
+          <p id="symmetry-intro">
+            <strong>Drag a line down the axis of symmetry</strong> on the pattern below,
+            then pick which of the two results you want. One side is mirrored onto the
+            other, so both match. A short stroke is enough — the whole axis is worked out
+            from its direction.
+          </p>
+          <p class="note">
+            Make symmetrical replaces the traced shape. Undo steps back one mirroring,
+            and cancel keeps the original.
+          </p>
+          <p class="status" id="symmetry-status"></p>
+
+          <div id="symmetry-choices" class="choices" hidden>
+            <figure class="choice">
+              <button id="choice-a" type="button" class="choice-button">
+                <canvas id="choice-a-canvas" width="240" height="300"></canvas>
+                <span class="choice-label">Keep this half</span>
+              </button>
+            </figure>
+            <figure class="choice">
+              <button id="choice-b" type="button" class="choice-button">
+                <canvas id="choice-b-canvas" width="240" height="300"></canvas>
+                <span class="choice-label">Keep this half</span>
+              </button>
+            </figure>
+          </div>
+
+          <div class="row">
+            <button id="symmetry-redraw" type="button" class="quiet">Redraw axis</button>
+            <button id="symmetry-undo" type="button" disabled>Undo mirroring</button>
+            <button id="symmetry-apply" type="button" class="primary" disabled>Apply</button>
+            <button id="symmetry-cancel" type="button" class="quiet">Cancel</button>
+          </div>
+        </div>
+
+        <div id="outline-preview" class="previews" hidden>
+          <figure>
+            <figcaption>This is what prints</figcaption>
+            <canvas id="outline-canvas"></canvas>
+          </figure>
+        </div>
+        <p id="upright-note" class="note" hidden>
+          Stood upright so you have room to work.
+        </p>
+        <p id="grid-note" class="note" hidden></p>
+
+        <p class="empty" id="layout-empty">
+          Available once you have chosen a shape above. You will be able to show a
+          centerline and registration marks, make the shape symmetrical,
+          and draw layout lines on it.
+        </p>
+
+        <!--
+          Ordered so the sequence encourages settling the shape before
+          decorating it: guides, then Make symmetrical, then layout lines
+          last. Nothing here is forbidden out of order — the order is the
+          advice.
+        -->
+        <div id="datum-row" class="row" hidden>
+          <label>Guides</label>
+          <label class="checkbox"><input id="grid" type="checkbox" checked /> Grid</label>
+          <label class="checkbox"><input id="show-centerline" type="checkbox" checked /> Centerline</label>
+          <label class="checkbox">
+            <input id="show-marks" type="checkbox" checked /> Registration marks
+          </label>
+          <button id="guides-help" type="button" class="hint-button" aria-expanded="false">
+            What's this?
+          </button>
+        </div>
+
+        <p class="explainer" id="guides-explainer" hidden>
+          Reference lines printed with the pattern to help you orient it on the blank —
+          the grid for scale and the centerline for squaring it up. Turn off
+          any you do not want; they are printed guidance, not part of the shape.
+          <br /><br />
+          Registration marks are five ticks placed for you: both ends, the middle, and
+          the two points halfway between. They sit at the same proportion of
+          <em>every</em> view, so they stay put when you change the size. Line them up
+          when transferring to the wood and the top and side views will agree.
+        </p>
+
+        <div id="symmetry-controls" class="row" hidden>
+          <button id="make-symmetrical" type="button">Make symmetrical</button>
+          <button id="symmetry-help" type="button" class="hint-button" aria-expanded="false">
+            What's this?
+          </button>
+        </div>
+
+        <!--
+          Directly below the button that toggles it. This paragraph used to sit
+          at the end of section 1, far above its control: pressing "What's this?"
+          revealed text off-screen and shifted everything above the viewport,
+          which read as nothing happening followed by the page jumping.
+        -->
+        <p class="explainer" id="symmetry-explainer" hidden>
+          Mirrors one side of your outline about an axis you choose, so both sides
+          match. Draw the axis, then pick which of the two results you want. You can
+          mirror again on a different axis to refine the shape. The traced shape is
+          replaced — undo steps back one mirroring, and cancel keeps the original.
+        </p>
+
+        <div id="marks-row" class="row" hidden>
+          <label>Draw on the pattern</label>
+          <button id="add-layout-line" type="button">Layout line</button>
+          <button id="layout-help" type="button" class="hint-button" aria-expanded="false">
+            What's this?
+          </button>
+          <span id="marks-summary" class="status"></span>
+          <button id="undo-annotation" type="button" class="quiet" disabled>Undo</button>
+          <button id="redo-annotation" type="button" class="quiet" disabled>Redo</button>
+          <button id="clear-marks" type="button" class="quiet" disabled>Clear</button>
+        </div>
+
+        <p class="explainer" id="layout-explainer" hidden>
+          A line you strike against while carving. Drag across the pattern to draw one at
+          any angle; nearly-square strokes snap square. Drag either end afterwards to
+          adjust it. They print as dashed lines, darker than the guides, because they are
+          meant to be worked to rather than just read.
+          <br /><br />
+          Useful when a guide is not what you want: turn off the centerline above and
+          draw your own where you think it belongs.
+        </p>
+
+        <div id="add-row" class="row" hidden>
+          <input id="view-label" type="text" placeholder="Top view" size="18" />
+          <button id="add-to-set" type="button" class="primary">Add to print set</button>
+        </div>
+      </section>
+
+      <!-- Print ------------------------------------------------------ -->
+      <section id="print-section">
+        <h2><span class="step">3</span> Print</h2>
+        <p id="print-intro" hidden>
+          Patterns print together as one PDF, each starting on its own page. Long
+          patterns tile across sheets with marks for taping them together.
+        </p>
+        <div id="print-set" class="print-set">
+          <p class="empty" id="print-set-empty">
+            Finish laying out your pattern, then add it here.
+          </p>
+        </div>
+
+        <div class="row" id="add-another-row" hidden>
+          <button id="add-another" type="button">Add another pattern</button>
+        </div>
+
+      <div id="print-controls" hidden>
+      <p id="storage-notice" class="notice" hidden>
+        Browser storage is unavailable, so your work will not be preserved if you
+        reload. Everything else works normally.
+      </p>
+
+        <div class="row">
+          <label for="page-size">Paper</label>
+          <select id="page-size">
+            <option value="letter">US Letter</option>
+            <option value="legal">US Legal</option>
+            <option value="a4">A4</option>
+            <option value="a3">A3</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="own-attribution">Your name (optional)</label>
+          <input id="own-attribution" type="text" size="24" placeholder="" />
+          <span class="status">Printed on your PDF.</span>
+        </div>
+
+        <div class="row" id="units-suggestion-row" hidden>
+          <span class="status" id="units-suggestion"></span>
+          <button id="units-accept" type="button" class="quiet">Switch to millimeters</button>
+          <button id="units-dismiss" type="button" class="quiet">Keep inches</button>
+        </div>
+
+        <div class="row">
+          <span id="size-reminder" class="status"></span>
+        </div>
+
+        <div class="row" id="shorten-row" hidden>
+          <span class="status" id="shorten-hint"></span>
+          <button id="shorten-to-fit" type="button" class="quiet"></button>
+        </div>
+
+        <div class="row">
+          <button id="download-pdf" type="button" class="primary" disabled>
+            Add a view to print
+          </button>
+        </div>
+      </div>
+      </section>
+
+      <!-- Reset ------------------------------------------------------ -->
+      <section id="reset-section">
+        <button id="start-over" type="button" class="quiet">Start over</button>
+        <p class="note">
+          Clears everything — the photograph, the pattern, and the print set.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="inner">
+        <div>
+          <p class="wordmark">Just Wood<span class="tm">™</span></p>
+          <p class="place">Berkeley, California</p>
+          <!--
+            The notice names the holder and nothing else: copyright vests in a
+            person or an entity, and the mark is branding rather than part of
+            the claim. Running them together read as either an appositive or
+            two holders, neither of which is what is meant.
+          -->
+          <p class="copyright-mark">©&nbsp;2026 Eric Friedman</p>
+        </div>
+
+        <!--
+          Hidden as a unit when no payment link is configured: the sentence
+          leads into the control with a dash, so hiding only the control left
+          the page trailing off into nothing.
+        -->
+        <div class="tip-jar" id="tip-jar-block" hidden>
+          <p class="place">This tool is free. If it saved you time —</p>
+          <!--
+            An ordinary link to a Stripe-hosted page, not an embedded checkout:
+            a payment widget would load third-party script and set cookies for
+            every visitor, including everyone who never tips, and the front
+            page promises otherwise. The href is filled in at startup from the
+            configured Payment Link; with none configured the control says so
+            rather than going nowhere.
+
+            The visible words are an invitation; the accessible name says what
+            it is, for anyone who meets the control without its surrounding
+            sentence.
+          -->
+          <a id="tip-jar" aria-label="Tip jar">Leave a tip</a>
+        </div>
+
+        <p class="place">
+          <a href="https://justwood.design" target="_blank" rel="noopener">
+            justwood.design
+          </a>
+        </p>
+      </div>
+
+    </footer>
+
+  </body>
+</html>
