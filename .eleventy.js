@@ -30,6 +30,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
   // Bowl Designer app — pre-built Vite bundle deployed via make web_deploy
   eleventyConfig.addPassthroughCopy({ "src/bowl_designer": "bowl_designer" });
+  // Carver's Pattern Maker — same arrangement, deployed from ~/prj/carving-patterns
+  eleventyConfig.addPassthroughCopy({ "src/pattern_maker": "pattern_maker" });
 
   // Filters
   eleventyConfig.addFilter("byCategory", (pieces, category) =>
