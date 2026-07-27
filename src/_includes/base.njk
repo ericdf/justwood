@@ -74,8 +74,15 @@
   <footer class="border-t border-ash">
     <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start gap-6">
       <div>
-        <p class="font-display text-2xl font-light text-charcoal">{{ site.title }}</p>
+        {# Trademark symbol on the footer wordmark only — claimed once per page at
+           its most prominent use; repeating it on the nav would read as clutter. #}
+        <p class="font-display text-2xl font-light text-charcoal">{{ site.title }}<span class="text-xs align-top tracking-normal">&trade;</span></p>
         <p class="font-ui text-xs tracking-wider text-charcoal/80 mt-1">Berkeley, California</p>
+        {# Names the holder and nothing else: copyright vests in a person, and the
+           mark above is branding rather than part of the claim. Quieter than the
+           wordmark and place — a legal fact about the work, not a third thing the
+           reader needs to take in. #}
+        <p class="font-ui text-xs tracking-wider text-charcoal/50 mt-2">&copy;&nbsp;2026 Eric Friedman</p>
       </div>
       <nav class="flex gap-8 font-ui text-xs tracking-wider uppercase text-charcoal/80">
         <a href="{{ '/' | url }}" class="hover:text-charcoal transition-colors">Work</a>
