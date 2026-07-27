@@ -12,8 +12,8 @@
     <link rel="icon" type="image/png" sizes="256x256" href="./icon-256.png" />
     <link rel="apple-touch-icon" href="./icon-256.png" />
     <meta name="theme-color" content="#F7F3EE" />
-    <script type="module" crossorigin src="./assets/index-DdQ2uc9j.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CNWszPr7.css">
+    <script type="module" crossorigin src="./assets/index-DGDL7Ikr.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BaFY2VFn.css">
   </head>
   <body>
     <header>
@@ -83,6 +83,25 @@
             <input id="file-input" type="file" accept="image/*" />
           </label>
           <span class="status" id="file-name"></span>
+        </div>
+        <p class="status intake-hint">
+          You can also drop a photograph here, or paste one.
+        </p>
+        <!--
+          The paste target, for touch devices, where there is no Cmd-V. iOS
+          offers its Paste menu only over an editable region that already
+          contains text, so the words below are load-bearing: an empty box is
+          given no menu at all. See docs/03-Image-Intake.md, R6.
+        -->
+        <div id="paste-target-row" class="paste-target-row">
+          <p class="status">Copied an image? Paste it here.</p>
+          <div
+            id="paste-target"
+            class="paste-target"
+            contenteditable="true"
+            role="button"
+            aria-label="Paste an image"
+          >Long-press, then Paste</div>
         </div>
         <p id="status" class="status instruction" role="status"></p>
         <p id="error" class="error" role="alert" hidden></p>
