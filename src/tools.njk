@@ -19,6 +19,13 @@ excerpt: Software tools that support the craft — not replace it.
 
     {# Tool card: Carver's Pattern Maker #}
     <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-start mb-16">
+      {# App icon — squircle is baked into the PNG, so no CSS radius here #}
+      <a href="{{ '/pattern_maker/' | url }}" target="_blank" rel="noopener" class="shrink-0">
+        <img src="{{ '/assets/images/tools/pattern-maker-icon.png' | url }}"
+             alt="Carver's Pattern Maker app icon"
+             width="512" height="512" loading="lazy" decoding="async"
+             class="w-20 h-20 md:w-28 md:h-28">
+      </a>
       <div class="flex-1">
         <h2 class="font-display text-2xl font-light text-charcoal mb-2">Carver's Pattern Maker</h2>
         <p class="font-ui text-[11px] tracking-widest uppercase text-charcoal/40 mb-4">Wood carving</p>
@@ -40,6 +47,13 @@ excerpt: Software tools that support the craft — not replace it.
 
     {# Tool card: Bowl Designer #}
     <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+      {# App icon — square source, so the macOS squircle is applied in CSS to match the Pattern Maker #}
+      <a href="{{ '/bowl_designer/' | url }}" target="_blank" rel="noopener" class="shrink-0">
+        <img src="{{ '/assets/images/tools/bowl-designer-icon.png' | url }}"
+             alt="Bowl Designer app icon"
+             width="512" height="512" loading="lazy" decoding="async"
+             class="w-20 h-20 md:w-28 md:h-28 rounded-[22%]">
+      </a>
       <div class="flex-1">
         <h2 class="font-display text-2xl font-light text-charcoal mb-2">Bowl Designer</h2>
         <p class="font-ui text-[11px] tracking-widest uppercase text-charcoal/40 mb-4">Segmented turning</p>
