@@ -12,10 +12,44 @@
     <link rel="icon" type="image/png" sizes="256x256" href="./icon-256.png" />
     <link rel="apple-touch-icon" href="./icon-256.png" />
     <meta name="theme-color" content="#F7F3EE" />
-    <script type="module" crossorigin src="./assets/index-6bLN0FRN.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BaFY2VFn.css">
+    <script type="module" crossorigin src="./assets/index-8DoEqIY0.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-B98THDiw.css">
   </head>
   <body>
+    <!--
+      The wider site's navigation, so someone who lands here directly can find
+      the rest of it. Someone arriving from a search knows only that they have a
+      pattern tool; the footer link says where it came from, but by then they
+      have scrolled past everything.
+
+      Hand-written rather than shared with the site's Eleventy build. The app is
+      copied into justwood.design as a passthrough directory and never rendered
+      as a template, so it cannot include the real header — and that header is
+      Tailwind classes driven by Alpine, neither of which this page loads.
+      Consistent, therefore, rather than identical: the same links in the same
+      order, drawn with this page's own vocabulary.
+
+      The four destinations are the site's top-level sections. If one is ever
+      renamed the link here goes stale silently, which is the cost of the
+      arrangement; they are not expected to change.
+    -->
+    <nav class="site-nav" aria-label="Just Wood">
+      <div class="site-nav-inner">
+        <a class="site-nav-brand" href="https://justwood.design/">Just Wood</a>
+        <ul class="site-nav-links">
+          <li><a href="https://justwood.design/">Work</a></li>
+          <li><a href="https://justwood.design/about/">About</a></li>
+          <li><a href="https://justwood.design/commission/">Commission</a></li>
+          <!--
+            aria-current="true", not "page": Tools is the section this app sits
+            inside, not the page the reader is on. Claiming "page" would tell a
+            screen reader they had arrived somewhere they have not.
+          -->
+          <li><a href="https://justwood.design/tools/" aria-current="true">Tools</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <header>
       <div class="inner">
         <div class="brand">
