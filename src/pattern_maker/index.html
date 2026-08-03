@@ -12,8 +12,8 @@
     <link rel="icon" type="image/png" sizes="256x256" href="./icon-256.png" />
     <link rel="apple-touch-icon" href="./icon-256.png" />
     <meta name="theme-color" content="#F7F3EE" />
-    <script type="module" crossorigin src="./assets/index-Dr6D8ctH.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Cg9TrAL6.css">
+    <script type="module" crossorigin src="./assets/index-DDscB2B0.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CyJDQCma.css">
   </head>
   <body>
     <!--
@@ -121,6 +121,153 @@
         <p class="status intake-hint">
           You can also drop a photograph here, or paste one.
         </p>
+        <!--
+          Advice, never a gate: the tool does not score a photograph or refuse
+          one. Collapsed because most photographs need none of this, and a wall
+          of conditions at the first step reads as a warning that the tool is
+          fragile.
+
+          Headline first, reasons on request. The headline is the whole
+          instruction — a carver can act on "blur the background" without
+          knowing why it works — so the paragraph beneath it is the answer to a
+          question the reader may not have asked. "Explain this" reuses the
+          What's this? mechanism from steps 2 and 3 rather than introducing a
+          popup: same markup, same wiring, and it survives with JS disabled as
+          visible text. Ordered most- to least-impactful. See
+          docs/04-Taking-the-Photograph.md, which owns this copy.
+        -->
+        <details class="photo-tips">
+          <summary>Tips for success with photos</summary>
+          <div class="photo-tips-body">
+            <p class="photo-tips-preamble">
+              None of this is required — the tool is built for ordinary photographs taken
+              with an ordinary phone. These shift the odds.
+            </p>
+            <ul class="photo-tips-list">
+              <li>
+                <p class="tip-headline">
+                  <strong>Blur the background.</strong> Use portrait mode if your phone has
+                  it.
+                  <button id="tip-blur-help" type="button" class="hint-button" aria-expanded="false">
+                    Explain this
+                  </button>
+                </p>
+                <p class="explainer" id="tip-blur-explainer" hidden>
+                  This is the single biggest improvement. The tool finds your object by
+                  looking for edges, and a sharp background offers hundreds of competing
+                  ones — leaf boundaries, grain lines, shadow edges, some stronger than
+                  your object's own. Blurring deletes the competition.
+                </p>
+              </li>
+              <li>
+                <p class="tip-headline">
+                  <strong>Use a contrasting background.</strong> Light object on dark cloth,
+                  or the reverse. On wood, lay it <em>across</em> the grain.
+                  <button id="tip-background-help" type="button" class="hint-button" aria-expanded="false">
+                    Explain this
+                  </button>
+                </p>
+                <p class="explainer" id="tip-background-explainer" hidden>
+                  The easiest thing to get right and the most common thing to get wrong,
+                  because the natural instinct is to set a wooden object on a wooden bench.
+                  Grain running parallel to your object's edge competes with it directly and
+                  the tool can follow the wrong line — so turning the object ninety degrees
+                  can rescue a photograph nothing else will.
+                </p>
+              </li>
+              <li>
+                <p class="tip-headline">
+                  <strong>If the selection is wrong, change the gesture.</strong> Tap first;
+                  if that fails, drag along the object's length.
+                  <button id="tip-gesture-help" type="button" class="hint-button" aria-expanded="false">
+                    Explain this
+                  </button>
+                </p>
+                <p class="explainer" id="tip-gesture-explainer" hidden>
+                  A tap says "the object is near here." A drag says "the object is this whole
+                  long thing" — much more information. Tap the <strong>widest</strong> part,
+                  not a narrow one. On a narrow or edge-on view — a spoon seen from the side
+                  is thinner than the fingers holding it — start with the drag. Changing the
+                  gesture fixes things erasing cannot.
+                </p>
+              </li>
+              <li>
+                <p class="tip-headline">
+                  <strong>Avoid hard shadows.</strong> Indirect light is all you need — an
+                  overcast day is ideal. Keep your own shadow out of the frame.
+                  <button id="tip-light-help" type="button" class="hint-button" aria-expanded="false">
+                    Explain this
+                  </button>
+                </p>
+                <p class="explainer" id="tip-light-explainer" hidden>
+                  Ordinary room light or open shade is fine; you are not lighting a
+                  photograph, only avoiding hard-edged shadows. A hard shadow edge looks
+                  exactly like an object edge to the tool, and one running alongside your
+                  object competes with the very edge it is trying to find. Standing between
+                  the light and the object puts that false line in the worst possible place.
+                </p>
+              </li>
+              <li>
+                <p class="tip-headline">
+                  <strong>Holding it is fine.</strong> A spoon on an open palm works well.
+                  Keep fingertips from sticking out past its outline.
+                  <button id="tip-hands-help" type="button" class="hint-button" aria-expanded="false">
+                    Explain this
+                  </button>
+                </p>
+                <p class="explainer" id="tip-hands-explainer" hidden>
+                  Hands behind the object are usually excluded correctly — an open palm, or
+                  fingers hidden beneath it, give the tool nothing that competes with your
+                  object's outline. What it does struggle with is a fingertip protruding past
+                  that outline, which it tends to read as part of the object. So an open palm
+                  beats a pinched grip, and where you tap or stroke matters more than whether
+                  a hand is in the frame at all.
+                </p>
+              </li>
+              <li>
+                <p class="tip-headline">
+                  <strong>Shoot square-on.</strong> Phone parallel to the object, directly
+                  above it. One object, filling the frame, with a margin.
+                  <button id="tip-framing-help" type="button" class="hint-button" aria-expanded="false">
+                    Explain this
+                  </button>
+                </p>
+                <p class="explainer" id="tip-framing-explainer" hidden>
+                  Your pattern is a true-scale silhouette, so a photograph taken at an angle
+                  produces a foreshortened pattern that measures short on paper. The margin
+                  matters too: an outline touching all four edges cannot be told apart from a
+                  selected background, and is reported as a failure.
+                </p>
+              </li>
+              <li class="tip-rescue">
+                <p class="tip-headline">
+                  <strong>Nothing here is make-or-break.</strong> Whatever the photograph
+                  gives you, you can fix it by hand in the next step.
+                  <button id="tip-rescue-help" type="button" class="hint-button" aria-expanded="false">
+                    Explain this
+                  </button>
+                </p>
+                <p class="explainer" id="tip-rescue-explainer" hidden>
+                  Once a photograph is chosen, <strong>Start touching up</strong> gives you
+                  the tools to correct anything the tool got wrong.
+                  <strong>Remove specks</strong> clears detached noise in one press and often
+                  does most of the work. <strong>Erase</strong> takes away what should not be
+                  there — a finger, a shadow, a patch of background — and
+                  <strong>Paint</strong> adds what should, including detail the photograph
+                  cannot show, such as a neck you mean to carve thicker than the original.
+                  <strong>Remove a piece</strong> and <strong>Snip Off</strong> take out
+                  whole regions at once, and <strong>Undo</strong> means nothing you try
+                  costs you anything.
+                </p>
+              </li>
+            </ul>
+            <p class="photo-tips-coda">
+              The tinted overlay shows what the tool selected — judge it before you trace. If
+              a photograph resists all of this, another one against a different background is
+              nearly always faster than correcting a bad selection.
+            </p>
+          </div>
+        </details>
         <!--
           The paste target, for touch devices, where there is no Cmd-V. iOS
           offers its Paste menu only over an editable region that already
@@ -388,9 +535,19 @@
           revealed text off-screen and shifted everything above the viewport,
           which read as nothing happening followed by the page jumping.
         -->
+        <!--
+          "A short line is fine" is stated because the gesture invites the
+          opposite: users draw the full length of the object, which is slower
+          and no more accurate. Only the line's position and angle are used —
+          it is treated as infinite — so a short stroke defines the same axis.
+          See symmetry.ts, signedDistance.
+        -->
         <p class="explainer" id="symmetry-explainer" hidden>
           Mirrors one side of your outline about an axis you choose, so both sides
-          match. Draw the axis, then pick which of the two results you want. You can
+          match. Draw the axis, then pick which of the two results you want.
+          <strong>A short line is enough</strong> — you do not have to draw the whole
+          length of the object. Only the line's angle and position matter, so a brief
+          stroke through the middle defines the same axis as a long one. You can
           mirror again on a different axis to refine the shape. The traced shape is
           replaced — undo steps back one mirroring, and cancel keeps the original.
         </p>
