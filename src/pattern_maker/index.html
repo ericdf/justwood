@@ -12,8 +12,8 @@
     <link rel="icon" type="image/png" sizes="256x256" href="./icon-256.png" />
     <link rel="apple-touch-icon" href="./icon-256.png" />
     <meta name="theme-color" content="#F7F3EE" />
-    <script type="module" crossorigin src="./assets/index-8DoEqIY0.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-B98THDiw.css">
+    <script type="module" crossorigin src="./assets/index-Dr6D8ctH.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Cg9TrAL6.css">
   </head>
   <body>
     <!--
@@ -144,16 +144,48 @@
         <div id="stage" class="stage" hidden>
           <img id="source-image" alt="Your photograph. Tap/click the object to select it." />
           <canvas id="overlay-canvas" class="overlay"></canvas>
+          <!--
+            The eraser ring lives on its own canvas above the mask overlay.
+            Drawing it into the overlay would mean either repainting the whole
+            mask on every pointer move to erase the previous ring, or leaving a
+            trail; a separate layer costs one clearRect per frame instead.
+          -->
+          <canvas id="brush-canvas" class="overlay"></canvas>
+
+          <!--
+            Nothing is removed until this is answered.
+
+            It lives *on* the photograph, not under the tool row, for the same
+            reason the working label does: on a phone the picture fills the
+            screen, so anything below it is off-screen exactly when the user is
+            looking at the red hatching and deciding about it. A question they
+            have to scroll to find is a question that gets missed.
+          -->
+          <div id="lift-confirm" class="lift-confirm" hidden>
+            <span id="lift-summary"></span>
+            <span class="lift-actions">
+              <button id="lift-apply" type="button" class="primary">Remove it</button>
+              <button id="lift-cancel" type="button">Keep it</button>
+            </span>
+          </div>
         </div>
 
         <div id="tools" class="row acquisition-tool" hidden>
-          <button id="erase-toggle" type="button">Start erasing</button>
-          <label for="brush" id="brush-label">Eraser size</label>
+          <button id="erase-toggle" type="button">Start touching up</button>
+          <div id="tool-swap" class="tool-swap" hidden role="group" aria-label="Touch-up tool">
+            <button id="tool-lift" type="button" aria-pressed="false">Remove a piece</button>
+            <button id="tool-cut" type="button" aria-pressed="false">Snip Off</button>
+            <button id="tool-erase" type="button" class="chosen" aria-pressed="true">Erase</button>
+            <button id="tool-paint" type="button" aria-pressed="false">Paint</button>
+          </div>
+          <label for="brush" id="brush-label">Brush size</label>
           <input id="brush" type="range" min="0.005" max="0.08" step="0.005" value="0.02" />
           <button id="keep-largest" type="button">Remove specks</button>
           <button id="undo-erase" type="button" disabled>Undo</button>
           <button id="reset-mask" type="button" disabled>Reset tracing</button>
         </div>
+
+
 
         <aside class="hint">
           <p class="hint-label">Good to know</p>
@@ -257,9 +289,6 @@
             <canvas id="outline-canvas"></canvas>
           </figure>
         </div>
-        <p id="upright-note" class="note" hidden>
-          Stood upright so you have room to work.
-        </p>
         <p id="grid-note" class="note" hidden></p>
 
         <p class="empty" id="layout-empty">
@@ -274,6 +303,55 @@
           last. Nothing here is forbidden out of order — the order is the
           advice.
         -->
+        <!--
+          Orientation before guides: standing the pattern the right way up is a
+          correction to the pattern itself, and everything below annotates what
+          this row settles. The automatic uprighting is usually right, so these
+          are for the times it is not.
+        -->
+        <div id="orient-row" class="row" hidden>
+          <label>Orientation</label>
+          <button id="rotate-left" type="button" title="Turn a quarter turn left">Rotate left</button>
+          <button id="rotate-right" type="button" title="Turn a quarter turn right">Rotate right</button>
+          <button id="flip-horizontal" type="button" title="Mirror left to right">Flip</button>
+          <button id="restore-orientation" type="button" class="quiet" disabled>
+            Restore automatic
+          </button>
+          <button id="orient-help" type="button" class="hint-button" aria-expanded="false">
+            What's this?
+          </button>
+        </div>
+
+        <p class="explainer" id="orient-explainer" hidden>
+          The pattern is stood upright for you, using the object's own long direction.
+          That is a guess, and on a shape with no clear long direction — a bowl seen
+          from above — it is left as photographed.
+          <br /><br />
+          Use these when the guess is wrong, or when you would rather work with the
+          pattern the other way round. Turning the pattern takes your layout lines with
+          it, and never changes the printed size.
+        </p>
+
+        <div id="outline-row" class="row" hidden>
+          <label>Outline</label>
+          <label class="checkbox">
+            <input id="smooth-outline" type="checkbox" checked /> Smooth the line
+          </label>
+          <button id="smoothing-help" type="button" class="hint-button" aria-expanded="false">
+            What's this?
+          </button>
+        </div>
+
+        <p class="explainer" id="smoothing-explainer" hidden>
+          Tracing a photograph leaves the edge slightly ragged — a stair-step that comes
+          from the pixels, not from your object. Smoothing takes that out.
+          <br /><br />
+          It is deliberately gentle, and it eases off wherever the shape is narrow, so a
+          thin neck or a small notch stays the size it really is. If smoothing cannot be
+          done without changing the shape, it is not applied and you are told. Turn it
+          off to see exactly what was traced.
+        </p>
+
         <div id="datum-row" class="row" hidden>
           <label>Guides</label>
           <label class="checkbox"><input id="grid" type="checkbox" checked /> Grid</label>
