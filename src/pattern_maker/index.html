@@ -12,6 +12,16 @@
     <link rel="icon" type="image/png" sizes="256x256" href="./icon-256.png" />
     <link rel="apple-touch-icon" href="./icon-256.png" />
     <meta name="theme-color" content="#F7F3EE" />
+    <!-- Cloudflare Web Analytics: anonymous page hits, the same beacon and
+         token the rest of justwood.design uses (src/_includes/base.njk). The
+         pattern maker is a standalone Vite build copied into the site, so it
+         does not inherit the Eleventy layout and needs its own tag.
+
+         A page view is what every web server already logs, GitHub Pages
+         included; the beacon only makes that visible to the site's owner.
+         Nothing about a photograph, a pattern, or an action is sent — the
+         images never leave the device either way. -->
+    <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "422a89c596d34cef87daf8c018f994c1"}'></script>
     <script type="module" crossorigin src="./assets/index-DDscB2B0.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CyJDQCma.css">
   </head>
