@@ -97,8 +97,9 @@ Tailwind is processed via PostCSS as part of the Eleventy build.
   "wiring": "Optional — for lighting pieces",
   "excerpt": "One-line description",
   "description": "Full prose",
-  "primaryImage": "/assets/images/[slug]/featured.webp",
-  "images": ["/assets/images/[slug]/detail-1.webp"],
+  "primaryImage": "/assets/images/[slug]/featured.jpeg",
+  "cardImage": "Optional — overrides primaryImage on gallery/category cards",
+  "images": ["/assets/images/[slug]/detail-1.jpeg"],
   "tags": ["joinery", "kumiko"]
 }
 ```
@@ -122,3 +123,30 @@ Tailwind is processed via PostCSS as part of the Eleventy build.
 **Implemented and deployed.** The site is live at justwood.design. `SPECIFICATION.md` contains the original design document for reference.
 
 Images are committed directly to `src/assets/images/` (one folder per piece). Optimised avif/webp/jpeg variants are generated at build time by `eleventy-img` into `src/assets/images/optimised/` and also committed so GitHub Actions deploys are fast (no re-optimisation on CI).
+
+## Image Storage Procedure
+
+**Folder per piece, named for the slug:**
+
+```
+src/assets/images/[slug]/
+  featured.jpeg        # hero — used by primaryImage
+  [detail].jpeg        # detail shots listed in images[]
+  originals/           # archival masters, never referenced by templates
+```
+
+**Working images** (`featured.jpeg`, detail shots) are what `pieces.json` points at and what `eleventy-img` reads. Save as JPEG, quality 92, `subsampling=0`. Do NOT commit camera PNGs as working images — a 14 MB PNG buys nothing over a quality-92 JPEG once `eleventy-img` has resized it.
+
+**Archival originals** go in `originals/`, re-encoded from the camera file at quality 95, `subsampling=0` (roughly a 70% size reduction vs. PNG with no visible loss at 100%). These are the masters to re-crop from later; nothing in the site references them. Keep the phone/camera PNGs out of git entirely — `.git` is already ~250 MB and the remote rejects large HTTPS pushes.
+
+**Naming:** `featured.jpeg` always means the hero. Give detail images descriptive names (`vial.jpeg`, `arrangement.jpeg`), not numbered ones — the order lives in `images[]`, so numbers go stale when the order changes.
+
+**Optimised variants** (`src/assets/images/optimised/`) are build output but ARE committed. They are content-hashed, so changing a source image leaves the old variants behind as orphans. `eleventy-img` never garbage-collects them. To clean up:
+
+```bash
+rm -rf src/assets/images/optimised && npm run build
+```
+
+A clean rebuild reproduces every still-referenced variant byte-identically, so `git status` should show no modifications to tracked files — only new ones for images you actually added. If it shows modified or deleted tracked files, something is wrong; investigate before committing.
+
+**Renaming a piece's slug:** rename the image folder to match, update `slug`, `primaryImage`, `cardImage` and `images[]` in `pieces.json`, and update any hardcoded `/work/[slug]/` links and `getBySlug()` calls in `index.njk` and the category pages. Do this BEFORE the piece is deployed — GitHub Pages has no server-side redirects, so a rename after deploy needs a `<meta http-equiv="refresh">` stub at the old URL.

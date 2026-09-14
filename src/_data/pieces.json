@@ -391,7 +391,9 @@
     "images": [
       "/assets/images/hanukkiah/assembled.jpeg"
     ],
-    "imagesObjectPosition": ["50% 80%"]
+    "imagesObjectPosition": [
+      "50% 80%"
+    ]
   },
   {
     "title": "Cherry and Birdseye Maple Tansu",
@@ -408,5 +410,26 @@
     "description": "The tansu is a Japanese storage tradition that prizes modularity, craftsmanship, and the beauty of the object as much as its function. This three-tier example takes that tradition seriously on every count.\n\nThe piece was designed for a specific room, its stepped profile echoing the rise of the staircase railing it abuts — a custom fit that makes the cabinet feel inevitable in its setting rather than placed there. Proud mortise and through-tenon joinery marks every corner, making the construction legible and decorative at once. Drawers are fitted with half-blind dovetails; doors slide wood-on-wood in both vertical and horizontal orientations, their birdseye maple panels bringing the same chatoyance to the tansu that quilted maple brings to the credenza — a figure that catches light differently from every angle.\n\nBoth faces of the cabinet are finished show sides. Drawers slide free of their cases from either direction; doors open on both faces. A tansu positioned between two spaces gives each its own access to the same storage — a genuinely useful property in an open-plan room, and one that makes the joinery worth admiring from every direction.\n\nThe three cases stack and separate independently, and the modular design extends beyond this installation: one case, two, or more can be combined in configurations suited to any space. Built to order.",
     "primaryImage": "/assets/images/tansu/featured.jpeg",
     "images": []
+  },
+  {
+    "title": "Porthole Vase",
+    "slug": "porthole-vase",
+    "category": "objects",
+    "featured": false,
+    "cardImageMode": "contain",
+    "homeSection": "objects",
+    "homeLayout": "split",
+    "status": "commission",
+    "date": "2026-09-13",
+    "materials": "Black Acacia, removable glass insert",
+    "dimensions": "",
+    "excerpt": "A vase for a single stem, branch, or spare arrangement",
+    "description": "The body is bored deeply to hold a removable glass insert, keeping water away from the wood while preserving the appearance of a solid wooden form. Small portholes of varying sizes punctuate the sides, creating shifting views through the piece and breaking up its otherwise quiet mass.\n\nEach face is hand planed into subtly asymmetrical facets, so the form changes as it turns and catches the light differently from every angle.\n\nIts narrow opening lends itself naturally to ikebana-like arrangements, but it works equally well with whatever branch, flower, or cutting happens to be in season.\n\nShown in Black Acacia. Built to order in a variety of wood species.",
+    "primaryImage": "/assets/images/porthole-vase/featured.jpeg",
+    "images": [
+      "/assets/images/porthole-vase/vial.jpeg",
+      "/assets/images/porthole-vase/arrangement.jpeg"
+    ],
+    "cardImage": "/assets/images/porthole-vase/vial.jpeg"
   }
 ]
