@@ -28,8 +28,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy({ "src/.nojekyll": ".nojekyll" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
-  // Bowl Designer app — pre-built Vite bundle deployed via make web_deploy
-  eleventyConfig.addPassthroughCopy({ "src/bowl_designer": "bowl_designer" });
+  // Bowl Designer app — built from ericdf/BowlDesigner by the deploy workflow
+  // and copied into _site/bowl_designer there; nothing to pass through here.
   // Carver's Pattern Maker — same arrangement, deployed from ~/prj/carving-patterns
   eleventyConfig.addPassthroughCopy({ "src/pattern_maker": "pattern_maker" });
 
