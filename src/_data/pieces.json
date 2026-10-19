@@ -125,16 +125,16 @@
     "featured": true,
     "showInGrid": false,
     "date": "2025-10-01",
-    "materials": "Purpleheart, maple, iroko (varies)",
+    "materials": "Maple, cherry, walnut (varies)",
     "dimensions": "",
     "excerpt": "Turned bowls assembled from multiple wood species for bold color and pattern",
-    "description": "A segmented bowl begins not with a log but with a design: rings of precisely cut segments, glued up in alternating species, then turned on the lathe to reveal the pattern hidden in the geometry. The technique frees the bowl from the constraints of any single piece of wood — size is limited only by imagination, and the color palette is as broad as the available species.\n\nThe bowl shown here combines purpleheart, maple, and iroko in a checkerboard pattern that shifts as the eye moves around the form. Other combinations are equally possible: the contrast between light and dark species, warm and cool tones, fine and coarse grain. Segmented bowls make particularly fine salad bowls, where their generous size and food-safe finish earn their place at the table as much as their beauty. Every bowl is a one-of-a-kind composition, designed and built to order.",
-    "primaryImage": "/assets/images/segmented-bowls/featured.png",
+    "description": "A segmented bowl begins not with a log but with a design: rings of precisely cut segments, glued up in alternating species, then turned on the lathe to reveal the pattern hidden in the geometry. The technique frees the bowl from the constraints of any single piece of wood — size is limited only by imagination, and the color palette is as broad as the available species.\n\nThe tornado bowl shown here combines maple, cherry, and walnut in staggered blocks, each ring offset from the last, so the pattern seems to spiral up from the foot as the eye moves around the form. Other combinations are equally possible: the contrast between light and dark species, warm and cool tones, fine and coarse grain. Segmented bowls make particularly fine salad bowls, where their generous size and food-safe finish earn their place at the table as much as their beauty. Every bowl is a one-of-a-kind composition, designed and built to order.",
+    "primaryImage": "/assets/images/segmented-bowls/tornado.png",
     "images": [
+      "/assets/images/segmented-bowls/featured.png",
       "/assets/images/segmented-bowls/Bowl - 15 Background Removed.png",
       "/assets/images/segmented-bowls/Bowl - 6 Background Removed.png",
-      "/assets/images/segmented-bowls/Bowl - 8 Background Removed.png",
-      "/assets/images/segmented-bowls/tornado.png"
+      "/assets/images/segmented-bowls/Bowl - 8 Background Removed.png"
     ]
   },
   {
